@@ -12,18 +12,19 @@ namespace :wc18 do
     # Tournaments
     puts 'Creating default tournaments...'
     DEFAULT_TOURNAMENTS.each do |tournament|
-      Tournament.where(code: tournament.code).first_or_create
+      tournament_obj = Tournament.where(code: tournament.code).first_or_create
 
       # Phases
       puts '  Creating default phases...'
       tournament.phases.each do |phase|
-        Phase.where(code: phase.code, level: phase.level, small_points: phase.small_points, big_points: phase.big_points).first_or_create
+        Phase.where(code: phase.code, level: phase.level, small_points: phase.small_points,
+          big_points: phase.big_points, tournament: tournament_obj).first_or_create
       end
 
       # Teams
       puts '  Creating default teams...'
       tournament.teams.each do |team|
-        Team.where(code: team.code, group: team.group).first_or_create
+        Team.where(code: team.code, group: team.group, tournament: tournament_obj).first_or_create
       end
     end
     puts 'Tournament created'

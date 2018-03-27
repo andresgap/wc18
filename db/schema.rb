@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180327061745) do
     t.datetime "date"
     t.integer "team1_score"
     t.integer "team2_score"
+    t.integer "tournament_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 20180327061745) do
     t.integer "level"
     t.integer "small_points"
     t.integer "big_points"
+    t.integer "tournament_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180327061745) do
   create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "code"
     t.string "group"
+    t.integer "tournament_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
