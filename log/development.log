@@ -1,0 +1,329 @@
+Started GET "/" for 127.0.0.1 at 2018-03-26 23:12:59 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/andres/.rvm/gems/ruby-2.4.2@global/gems/railties-5.1.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/andres/.rvm/gems/ruby-2.4.2@global/gems/railties-5.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.7ms)
+Completed 200 OK in 300ms (Views: 10.2ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (46.8ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (20.3ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT GET_LOCK('671113236261685560', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateTeams (20180327052615)
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE `teams` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `code` varchar(255), `group` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180327052615')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMatches (20180327052814)
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE `matches` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `team1_id` int, `team2_id` int, `phase_id` int, `date` datetime, `team1_score` int, `team2_score` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180327052814')[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePhases (20180327052935)
+  [1m[35m (21.8ms)[0m  [1m[35mCREATE TABLE `phases` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `code` varchar(255), `level` int, `small_points` int, `big_points` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180327052935')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTournaments (20180327053009)
+  [1m[35m (17.2ms)[0m  [1m[35mCREATE TABLE `tournaments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `code` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180327053009')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-03-27 05:35:00', '2018-03-27 05:35:00')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('671113236261685560')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-03-26 23:35:10 -0600
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/andres/.rvm/gems/ruby-2.4.2@global/gems/railties-5.1.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/andres/.rvm/gems/ruby-2.4.2@global/gems/railties-5.1.5/lib/rails/templates/rails/welcome/index.html.erb (5.7ms)
+Completed 200 OK in 28ms (Views: 13.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('671113236261685560', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseCreateUsers (20180327061638)
+  [1m[35m (15.2ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) [0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180327061638')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToUsers (20180327061745)
+  [1m[35m (27.6ms)[0m  [1m[35mALTER TABLE `users` ADD `provider` varchar(255)[0m
+  [1m[35m (13.9ms)[0m  [1m[35mALTER TABLE `users` ADD `uid` varchar(255)[0m
+  [1m[35m (16.1ms)[0m  [1m[35mALTER TABLE `users` ADD `name` varchar(255)[0m
+  [1m[35m (20.0ms)[0m  [1m[35mALTER TABLE `users` ADD `picture` varchar(255)[0m
+  [1m[35m (14.5ms)[0m  [1m[35mALTER TABLE `users` ADD `image` varchar(255)[0m
+  [1m[35m (22.1ms)[0m  [1m[35mALTER TABLE `users` ADD `active` tinyint(1) DEFAULT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180327061745')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('671113236261685560')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'andrez47@gmail.com' AND `users`.`admin` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (40.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS `wc18_development`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS `wc18_test`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (20.0ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('671113236261685560', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateTeams (20180327052615)
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE `teams` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `code` varchar(255), `group` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180327052615')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMatches (20180327052814)
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE `matches` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `team1_id` int, `team2_id` int, `phase_id` int, `date` datetime, `team1_score` int, `team2_score` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180327052814')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePhases (20180327052935)
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE `phases` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `code` varchar(255), `level` int, `small_points` int, `big_points` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180327052935')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTournaments (20180327053009)
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE `tournaments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `code` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180327053009')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DeviseCreateUsers (20180327061638)
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (16.5ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (16.1ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) [0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180327061638')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToUsers (20180327061745)
+  [1m[35m (19.4ms)[0m  [1m[35mALTER TABLE `users` ADD `provider` varchar(255)[0m
+  [1m[35m (13.7ms)[0m  [1m[35mALTER TABLE `users` ADD `uid` varchar(255)[0m
+  [1m[35m (15.0ms)[0m  [1m[35mALTER TABLE `users` ADD `name` varchar(255)[0m
+  [1m[35m (15.8ms)[0m  [1m[35mALTER TABLE `users` ADD `picture` varchar(255)[0m
+  [1m[35m (21.8ms)[0m  [1m[35mALTER TABLE `users` ADD `image` varchar(255)[0m
+  [1m[35m (19.2ms)[0m  [1m[35mALTER TABLE `users` ADD `active` tinyint(1) DEFAULT 1[0m
+  [1m[35m (19.5ms)[0m  [1m[35mALTER TABLE `users` ADD `admin` tinyint(1) DEFAULT 0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180327061745')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-03-27 06:19:19', '2018-03-27 06:19:19')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('671113236261685560')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'andrez47@gmail.com' AND `users`.`admin` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'andrez47@gmail.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTournament Load (0.7ms)[0m  [1m[34mSELECT  `tournaments`.* FROM `tournaments` WHERE `tournaments`.`code` = 'WC18' ORDER BY `tournaments`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tournaments` (`code`, `created_at`, `updated_at`) VALUES ('WC18', '2018-03-27 06:19:25', '2018-03-27 06:19:25')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'andrez47@gmail.com' AND `users`.`admin` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'andrez47@gmail.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTournament Load (0.5ms)[0m  [1m[34mSELECT  `tournaments`.* FROM `tournaments` WHERE `tournaments`.`code` = 'WC18' ORDER BY `tournaments`.`id` ASC LIMIT 1[0m
+  [1m[36mPhase Load (0.3ms)[0m  [1m[34mSELECT  `phases`.* FROM `phases` WHERE `phases`.`code` = 'A' AND `phases`.`level` = 1 AND `phases`.`small_points` = 1 AND `phases`.`big_points` = 3 ORDER BY `phases`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `phases` (`code`, `level`, `small_points`, `big_points`, `created_at`, `updated_at`) VALUES ('A', 1, 1, 3, '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhase Load (0.3ms)[0m  [1m[34mSELECT  `phases`.* FROM `phases` WHERE `phases`.`code` = 'B' AND `phases`.`level` = 1 AND `phases`.`small_points` = 1 AND `phases`.`big_points` = 3 ORDER BY `phases`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `phases` (`code`, `level`, `small_points`, `big_points`, `created_at`, `updated_at`) VALUES ('B', 1, 1, 3, '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhase Load (0.3ms)[0m  [1m[34mSELECT  `phases`.* FROM `phases` WHERE `phases`.`code` = 'C' AND `phases`.`level` = 1 AND `phases`.`small_points` = 1 AND `phases`.`big_points` = 3 ORDER BY `phases`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `phases` (`code`, `level`, `small_points`, `big_points`, `created_at`, `updated_at`) VALUES ('C', 1, 1, 3, '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhase Load (0.4ms)[0m  [1m[34mSELECT  `phases`.* FROM `phases` WHERE `phases`.`code` = 'D' AND `phases`.`level` = 1 AND `phases`.`small_points` = 1 AND `phases`.`big_points` = 3 ORDER BY `phases`.`id` ASC LIMIT 1[0m
+  [1m[35m (2.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `phases` (`code`, `level`, `small_points`, `big_points`, `created_at`, `updated_at`) VALUES ('D', 1, 1, 3, '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhase Load (0.3ms)[0m  [1m[34mSELECT  `phases`.* FROM `phases` WHERE `phases`.`code` = 'E' AND `phases`.`level` = 1 AND `phases`.`small_points` = 1 AND `phases`.`big_points` = 3 ORDER BY `phases`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `phases` (`code`, `level`, `small_points`, `big_points`, `created_at`, `updated_at`) VALUES ('E', 1, 1, 3, '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhase Load (0.4ms)[0m  [1m[34mSELECT  `phases`.* FROM `phases` WHERE `phases`.`code` = 'F' AND `phases`.`level` = 1 AND `phases`.`small_points` = 1 AND `phases`.`big_points` = 3 ORDER BY `phases`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `phases` (`code`, `level`, `small_points`, `big_points`, `created_at`, `updated_at`) VALUES ('F', 1, 1, 3, '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhase Load (0.3ms)[0m  [1m[34mSELECT  `phases`.* FROM `phases` WHERE `phases`.`code` = 'G' AND `phases`.`level` = 1 AND `phases`.`small_points` = 1 AND `phases`.`big_points` = 3 ORDER BY `phases`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `phases` (`code`, `level`, `small_points`, `big_points`, `created_at`, `updated_at`) VALUES ('G', 1, 1, 3, '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhase Load (0.4ms)[0m  [1m[34mSELECT  `phases`.* FROM `phases` WHERE `phases`.`code` = 'H' AND `phases`.`level` = 1 AND `phases`.`small_points` = 1 AND `phases`.`big_points` = 3 ORDER BY `phases`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `phases` (`code`, `level`, `small_points`, `big_points`, `created_at`, `updated_at`) VALUES ('H', 1, 1, 3, '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhase Load (0.5ms)[0m  [1m[34mSELECT  `phases`.* FROM `phases` WHERE `phases`.`code` = 'round_of_16' AND `phases`.`level` = 2 AND `phases`.`small_points` = 2 AND `phases`.`big_points` = 5 ORDER BY `phases`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `phases` (`code`, `level`, `small_points`, `big_points`, `created_at`, `updated_at`) VALUES ('round_of_16', 2, 2, 5, '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhase Load (0.3ms)[0m  [1m[34mSELECT  `phases`.* FROM `phases` WHERE `phases`.`code` = 'quarter_finals' AND `phases`.`level` = 3 AND `phases`.`small_points` = 3 AND `phases`.`big_points` = 7 ORDER BY `phases`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `phases` (`code`, `level`, `small_points`, `big_points`, `created_at`, `updated_at`) VALUES ('quarter_finals', 3, 3, 7, '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhase Load (0.3ms)[0m  [1m[34mSELECT  `phases`.* FROM `phases` WHERE `phases`.`code` = 'semi_final' AND `phases`.`level` = 4 AND `phases`.`small_points` = 4 AND `phases`.`big_points` = 9 ORDER BY `phases`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `phases` (`code`, `level`, `small_points`, `big_points`, `created_at`, `updated_at`) VALUES ('semi_final', 4, 4, 9, '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhase Load (0.3ms)[0m  [1m[34mSELECT  `phases`.* FROM `phases` WHERE `phases`.`code` = 'third_place' AND `phases`.`level` = 5 AND `phases`.`small_points` = 5 AND `phases`.`big_points` = 11 ORDER BY `phases`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `phases` (`code`, `level`, `small_points`, `big_points`, `created_at`, `updated_at`) VALUES ('third_place', 5, 5, 11, '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhase Load (0.3ms)[0m  [1m[34mSELECT  `phases`.* FROM `phases` WHERE `phases`.`code` = 'final' AND `phases`.`level` = 6 AND `phases`.`small_points` = 6 AND `phases`.`big_points` = 13 ORDER BY `phases`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `phases` (`code`, `level`, `small_points`, `big_points`, `created_at`, `updated_at`) VALUES ('final', 6, 6, 13, '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'arg' AND `teams`.`group` = 'D' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('arg', 'D', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'aus' AND `teams`.`group` = 'C' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('aus', 'C', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'bel' AND `teams`.`group` = 'G' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('bel', 'G', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'bra' AND `teams`.`group` = 'E' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('bra', 'E', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'col' AND `teams`.`group` = 'H' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('col', 'H', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'crc' AND `teams`.`group` = 'E' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('crc', 'E', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'cro' AND `teams`.`group` = 'D' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('cro', 'D', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'den' AND `teams`.`group` = 'C' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('den', 'C', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'egy' AND `teams`.`group` = 'A' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('egy', 'A', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'eng' AND `teams`.`group` = 'G' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('eng', 'G', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'esp' AND `teams`.`group` = 'B' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('esp', 'B', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'fra' AND `teams`.`group` = 'C' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('fra', 'C', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'ger' AND `teams`.`group` = 'F' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('ger', 'F', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'irn' AND `teams`.`group` = 'B' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('irn', 'B', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'isl' AND `teams`.`group` = 'D' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('isl', 'D', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'jpn' AND `teams`.`group` = 'H' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('jpn', 'H', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'kor' AND `teams`.`group` = 'F' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('kor', 'F', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'ksa' AND `teams`.`group` = 'A' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('ksa', 'A', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'mar' AND `teams`.`group` = 'B' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('mar', 'B', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'mex' AND `teams`.`group` = 'F' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('mex', 'F', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'nga' AND `teams`.`group` = 'D' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('nga', 'D', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'pan' AND `teams`.`group` = 'G' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('pan', 'G', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'per' AND `teams`.`group` = 'C' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('per', 'C', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'pol' AND `teams`.`group` = 'H' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('pol', 'H', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'por' AND `teams`.`group` = 'B' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('por', 'B', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'rus' AND `teams`.`group` = 'A' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('rus', 'A', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'sen' AND `teams`.`group` = 'H' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('sen', 'H', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'srb' AND `teams`.`group` = 'E' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('srb', 'E', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'sui' AND `teams`.`group` = 'E' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('sui', 'E', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'swe' AND `teams`.`group` = 'F' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('swe', 'F', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'tun' AND `teams`.`group` = 'G' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('tun', 'G', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  `teams`.* FROM `teams` WHERE `teams`.`code` = 'uru' AND `teams`.`group` = 'A' ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `teams` (`code`, `group`, `created_at`, `updated_at`) VALUES ('uru', 'A', '2018-03-27 06:22:12', '2018-03-27 06:22:12')[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m

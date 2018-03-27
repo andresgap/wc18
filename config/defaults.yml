@@ -1,0 +1,125 @@
+admins:
+  - email: 'andrez47@gmail.com'
+
+tournaments:
+  - code: 'WC18'
+    phases:
+      - code: 'A'
+        level: 1
+        small_points: 1
+        big_points: 3
+      - code: 'B'
+        level: 1
+        small_points: 1
+        big_points: 3
+      - code: 'C'
+        level: 1
+        small_points: 1
+        big_points: 3
+      - code: 'D'
+        level: 1
+        small_points: 1
+        big_points: 3
+      - code: 'E'
+        level: 1
+        small_points: 1
+        big_points: 3
+      - code: 'F'
+        level: 1
+        small_points: 1
+        big_points: 3
+      - code: 'G'
+        level: 1
+        small_points: 1
+        big_points: 3
+      - code: 'H'
+        level: 1
+        small_points: 1
+        big_points: 3
+      - code: 'round_of_16'
+        level: 2
+        small_points: 2
+        big_points: 5
+      - code: 'quarter_finals'
+        level: 3
+        small_points: 3
+        big_points: 7
+      - code: 'semi_final'
+        level: 4
+        small_points: 4
+        big_points: 9
+      - code: 'third_place'
+        level: 5
+        small_points: 5
+        big_points: 11
+      - code: 'final'
+        level: 6
+        small_points: 6
+        big_points: 13
+    teams:
+      - code: 'arg'
+        group: 'D'
+      - code: 'aus'
+        group: 'C'
+      - code: 'bel'
+        group: 'G'
+      - code: 'bra'
+        group: 'E'
+      - code: 'col'
+        group: 'H'
+      - code: 'crc'
+        group: 'E'
+      - code: 'cro'
+        group: 'D'
+      - code: 'den'
+        group: 'C'
+      - code: 'egy'
+        group: 'A'
+      - code: 'eng'
+        group: 'G'
+      - code: 'esp'
+        group: 'B'
+      - code: 'fra'
+        group: 'C'
+      - code: 'ger'
+        group: 'F'
+      - code: 'irn'
+        group: 'B'
+      - code: 'isl'
+        group: 'D'
+      - code: 'jpn'
+        group: 'H'
+      - code: 'kor'
+        group: 'F'
+      - code: 'ksa'
+        group: 'A'
+      - code: 'mar'
+        group: 'B'
+      - code: 'mex'
+        group: 'F'
+      - code: 'nga'
+        group: 'D'
+      - code: 'pan'
+        group: 'G'
+      - code: 'per'
+        group: 'C'
+      - code: 'pol'
+        group: 'H'
+      - code: 'por'
+        group: 'B'
+      - code: 'rus'
+        group: 'A'
+      - code: 'sen'
+        group: 'H'
+      - code: 'srb'
+        group: 'E'
+      - code: 'sui'
+        group: 'E'
+      - code: 'swe'
+        group: 'F'
+      - code: 'tun'
+        group: 'G'
+      - code: 'uru'
+        group: 'A'
+    matches:
+
