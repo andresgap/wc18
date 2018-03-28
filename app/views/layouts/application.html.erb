@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wc18</title>
+    <title><%= page_title %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/messages', flash: flash %>
+    <%= render 'shared/navbar' %>
+    <div class="page">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
+
 </html>
