@@ -1,6 +1,6 @@
 class PredictionsController < ApplicationController
   before_action :authenticate_user!
-  before_filter :set_active_page, only: [:index]
+  before_action :set_active_page, only: [:index]
 
   def index
     @matches = Match.all

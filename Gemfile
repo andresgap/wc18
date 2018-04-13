@@ -37,6 +37,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
 # UI
+gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'autoprefixer-rails'
 

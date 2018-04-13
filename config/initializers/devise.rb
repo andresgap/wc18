@@ -13,6 +13,7 @@ CLIENT_SECRET = ENV['GOOGLE_CLIENT_SECRET'] || OMNIAUTH_KEYS['GOOGLE_CLIENT_SECR
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+
   config.omniauth :google_oauth2, CLIENT_ID, CLIENT_SECRET, {
     prompt: 'select_account',
     skip_jwt: true
