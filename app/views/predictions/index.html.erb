@@ -2,15 +2,15 @@
   <div class="row">
     <div class="col-sm-12">
       <h1 class="title">
-        <span>Matches</span>
+        <span>My Predictions</span>
       </h1>
     </div>
   </div>
 
   <div id="matches-content">
-    <% if matches.any? %>
+    <% if @matches.any? %>
       <div class="row">
-        <% matches.each do |match| %>
+        <% @matches.each do |match| %>
           <div class="col-sm-12">
             <%= match.date %> | <%= match.team1.code %> vs <%= match.team2.code %>
           </div>

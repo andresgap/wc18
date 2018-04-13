@@ -1,15 +1,30 @@
 # frozen_string_literal: true
 
+begin
+  filepath = "#{Rails.root}/config/omniauth.yml"
+  OMNIAUTH_KEYS = YAML.load_file(filepath)[Rails.env]
+rescue Errno::ENOENT, Psych::SyntaxError
+  Rails.logger.error 'An error occured while loading omniauth.yml'
+end
+OMNIAUTH_KEYS ||= {}
+CLIENT_ID = ENV['GOOGLE_CLIENT_ID'] || OMNIAUTH_KEYS['GOOGLE_CLIENT_ID']
+CLIENT_SECRET = ENV['GOOGLE_CLIENT_SECRET'] || OMNIAUTH_KEYS['GOOGLE_CLIENT_SECRET']
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.omniauth :google_oauth2, CLIENT_ID, CLIENT_SECRET, {
+    prompt: 'select_account',
+    skip_jwt: true
+  }
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '8b376993e50d40816b4c982b3bf4c7be65a9ca2abd326bfb1c2dfbf454e21cb803b461f7b22e5f5ae3a024f5318a6e08cd28ad0e6a1e38efa9db53b7ffc27273'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'

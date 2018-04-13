@@ -13,4 +13,12 @@ class User < ApplicationRecord
     admin
   end
 
+  def profile_image
+    image || 'default.png'
+  end
+
+  def profile_icon
+    picture || 'default.png'
+  end
+
 end

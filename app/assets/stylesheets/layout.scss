@@ -1,0 +1,46 @@
+// Colors
+$white: #FFFFFF;
+$black: #000000;
+$gray: #ECECEC;
+$blue: #1B303A;
+$titles: #00b7d6;
+$link: #00b7d6;
+$link-hover: #0d4762;
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: none;
+}
+
+.lines {
+  border-bottom: 6px solid transparent;
+  border-image: linear-gradient(to right, rgb(107, 77, 144) 25%, rgb(247, 156, 29) 25%,
+    rgb(247, 156, 29) 50%, rgb(19, 101, 139) 50%, rgb(19, 101, 139) 75%, rgb(32, 161, 116) 75%,
+    rgb(32, 161, 116) 100%) 1 1 1 1;
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+  outline: 0 none;
+  &:focus, &:hover, &:active {
+    color: $link-hover;
+    text-decoration: none;
+    outline: 0 none;
+  }
+}
+
+// Alerts
+div.alert {
+  margin: 0px;
+  border-radius: 0px;
+}
+
+.title {
+  color: $titles;
+  display: inline-block;
+}

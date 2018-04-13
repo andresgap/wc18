@@ -7,16 +7,14 @@ Rails.application.routes.draw do
     end
 
     authenticated do
-      root 'matches#index'
+      root 'predictions#index'
     end
   end
 
-  resources :matches, only: [:index]
+  resources :predictions, only: [:index]
 
-  # namespace :admin do
-  #   resources :users, only: [:index, :edit, :update]
-  #   resources :projects do
-  #     get 'delete'
-  #   end
-  # end
+  namespace :admin do
+    resources :users, only: [:index, :edit, :update]
+  end
+
 end
