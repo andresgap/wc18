@@ -17,14 +17,34 @@ namespace :wc18 do
       # Phases
       puts '  Creating default phases...'
       tournament.phases.each do |phase|
-        Phase.where(code: phase.code, level: phase.level, small_points: phase.small_points,
-          big_points: phase.big_points, tournament: tournament_obj).first_or_create
+        Phase
+          .where(code: phase.code, level: phase.level, small_points: phase.small_points,
+            big_points: phase.big_points, active: phase.active, tournament: tournament_obj)
+          .first_or_create
       end
 
       # Teams
       puts '  Creating default teams...'
       tournament.teams.each do |team|
         Team.where(code: team.code, group: team.group, tournament: tournament_obj).first_or_create
+      end
+
+      # Matches
+      puts '  Creating default matches...'
+      teams = Team.all
+      phases = Phase.all
+      tournament.matches.each do |match|
+        date = DateTime.parse(match.date)
+        phase = phases.find { |phase| phase.code == match.phase }
+        if match.team1 && match.team2
+          team1 = teams.find { |team| team.code == match.team1 }
+          team2 = teams.find { |team| team.code == match.team2 }
+          Match
+            .where(date: date, team1: team1, team2: team2, phase: phase, tournament: tournament_obj)
+            .first_or_create
+        else
+          Match.where(date: date, phase: phase, tournament: tournament_obj).first_or_create
+        end
       end
     end
     puts 'Tournament created'

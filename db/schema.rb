@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20180413045453) do
     t.integer "level"
     t.integer "small_points"
     t.integer "big_points"
+    t.boolean "active"
     t.integer "tournament_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
