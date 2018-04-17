@@ -8,6 +8,8 @@ class CreateMatches < ActiveRecord::Migration[5.1]
       t.integer :team1_score
       t.integer :team2_score
       t.integer :tournament_id
+      t.boolean :active, default: false
+      t.boolean :open, default: false
 
       t.timestamps
     end

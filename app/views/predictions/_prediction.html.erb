@@ -1,0 +1,15 @@
+<% prediction = f.object %>
+<% if prediction.match.team1 %>
+<div class="prediction-box">
+  <div>
+    <%= image_tag(prediction.match.team1.flag, class: 'flag') %>
+    <span class="name"><%= prediction.match.team1.name %></span>
+    <%= f.number_field :score1, size: 1 %>
+    vs
+    <%= f.number_field :score2, size: 1 %>
+    <span class="name"><%= prediction.match.team2.name %></span>
+    <%= image_tag(prediction.match.team2.flag, class: 'flag') %>
+  </div>
+</div>
+
+<% end %>

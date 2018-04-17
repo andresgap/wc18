@@ -39,11 +39,25 @@ namespace :wc18 do
         if match.team1 && match.team2
           team1 = teams.find { |team| team.code == match.team1 }
           team2 = teams.find { |team| team.code == match.team2 }
-          Match
-            .where(date: date, team1: team1, team2: team2, phase: phase, tournament: tournament_obj)
-            .first_or_create
+          match_params = {
+            date: date,
+            team1: team1,
+            team2: team2,
+            phase: phase,
+            tournament: tournament_obj,
+            active: phase.active,
+            open: phase.active
+          }
+          Match.where(match_params).first_or_create
         else
-          Match.where(date: date, phase: phase, tournament: tournament_obj).first_or_create
+          match_params = {
+            date: date,
+            phase: phase,
+            tournament: tournament_obj,
+            active: phase.active,
+            open: phase.active
+          }
+          Match.where(match_params).first_or_create
         end
       end
     end

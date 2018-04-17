@@ -7,17 +7,17 @@
     </div>
   </div>
 
-  <div id="matches-content">
-    <% if @matches.any? %>
-      <div class="row">
-        <% @matches.each do |match| %>
+  <div id="predictions-content">
+    <div class="row">
+      <%= form_for(@prediction_set,
+        url: prediction_path(@prediction_set), method: :put) do |f| %>
+        <%= f.fields_for :predictions do |f_prediction| %>
           <div class="col-sm-12">
-            <%= match.date %> | <%= match.team1.code %> vs <%= match.team2.code %>
+            <%= render 'prediction', f: f_prediction %>
           </div>
         <% end %>
-      </div>
-    <% else %>
-      No matches yet.
-    <% end %>
+        <%= submit_tag %>
+      <% end %>
+    </div>
   </div>
 </div>
