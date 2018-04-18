@@ -1,13 +1,32 @@
 
 .prediction-box {
-  margin: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #DDD;
 }
 
 .flag {
   border: 1px solid #DDD;
 }
 
-.prediction-box .name {
+.prediction-box .name-left {
   display: inline-block;
   min-width: 100px;
+  margin: 0px 10px;
+}
+.prediction-box .name-right {
+  display: inline-block;
+  min-width: 100px;
+  margin: 0px 10px;
+  text-align: right;
+}
+
+input.score {
+  width: 40px;
+  margin: 0px 10px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+input.score[disabled=disabled] {
+  background-color: #CCC;
 }

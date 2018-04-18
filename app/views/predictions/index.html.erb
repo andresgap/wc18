@@ -7,17 +7,20 @@
     </div>
   </div>
 
-  <div id="predictions-content">
-    <div class="row">
-      <%= form_for(@prediction_set,
-        url: prediction_path(@prediction_set), method: :put) do |f| %>
-        <%= f.fields_for :predictions do |f_prediction| %>
-          <div class="col-sm-12">
-            <%= render 'prediction', f: f_prediction %>
+  <%= form_for(@prediction_set, url: prediction_path(@prediction_set), method: :put) do |f| %>
+    <div class="row" id="predictions-content">
+      <%= f.fields_for :predictions do |fp| %>
+        <% if fp.object.match.active %>
+          <div class="col">
+            <%= render 'prediction', f: fp, prediction: fp.object %>
           </div>
         <% end %>
-        <%= submit_tag %>
       <% end %>
     </div>
-  </div>
+
+    <div class="row">
+      <%= submit_tag %>
+    </div>
+
+  <% end %>
 </div>

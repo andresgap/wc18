@@ -27,5 +27,7 @@ module Wc18
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.time_zone = 'Central America'
   end
 end
