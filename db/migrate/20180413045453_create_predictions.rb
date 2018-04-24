@@ -5,6 +5,7 @@ class CreatePredictions < ActiveRecord::Migration[5.1]
       t.integer :match_id
       t.integer :score1
       t.integer :score2
+      t.integer :points
 
       t.timestamps
     end

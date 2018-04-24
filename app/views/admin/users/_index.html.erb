@@ -6,6 +6,7 @@
       <th>Sign In Count</th>
       <th>Last Sign In At</th>
       <th>Admin?</th>
+      <th>Active?</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -15,7 +16,8 @@
       <td><%= user.email %></td>
       <td><%= user.sign_in_count %></td>
       <td><%= user.last_sign_in_at.localtime %></td>
-      <td><%= user.admin? ? 'Yes' : 'No' %></td>
+      <td><%= yes_no_label(user.admin?) %></td>
+      <td><%= yes_no_label(user.active) %></td>
       <td>
         <% if user != current_user %>
           <%= link_to edit_admin_user_path(user), remote: true,
@@ -34,6 +36,7 @@
        retrieve: true,
        iDisplayLength: 50,
        columns: [
+         { type: "string" },
          { type: "string" },
          { type: "string" },
          { type: "string" },

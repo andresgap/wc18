@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if match.errors.any? %>
+  <% match.errors.full_messages.each do |message| %>
+    $("div.errors").append($("<div class='alert alert-danger'/>").html("<%= message.html_safe %>"));
+  <% end %>
+<% else %>
+  $("#matches-content").html("<%= escape_javascript(render 'index', matches: matches) %>");
+  $("#matches-modal").modal("hide");
+<% end %>

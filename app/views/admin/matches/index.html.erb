@@ -1,0 +1,18 @@
+<%= render 'admin/shared/header', selected: 'matches' %>
+
+<div class="container">
+  <h2>
+    <span>Matches</span>
+  </h2>
+
+  <div id="matches-content">
+    <%= render 'index', matches: @all_entity_objects %>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="matches-modal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div id="matches-modal-content" class="modal-content"></div>
+    </div>
+  </div>
+</div>

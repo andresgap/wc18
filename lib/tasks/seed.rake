@@ -33,29 +33,31 @@ namespace :wc18 do
       puts '  Creating default matches...'
       teams = Team.all
       phases = Phase.all
-      tournament.matches.each do |match|
+      tournament.matches.each_with_index do |match, index|
         date = DateTime.parse(match.date)
         phase = phases.find { |phase| phase.code == match.phase }
         if match.team1 && match.team2
           team1 = teams.find { |team| team.code == match.team1 }
           team2 = teams.find { |team| team.code == match.team2 }
           match_params = {
+            number: index + 1,
             date: date,
             team1: team1,
             team2: team2,
             phase: phase,
             tournament: tournament_obj,
             active: phase.active,
-            open: phase.active
+            show: phase.active
           }
           Match.where(match_params).first_or_create
         else
           match_params = {
+            number: index + 1,
             date: date,
             phase: phase,
             tournament: tournament_obj,
             active: phase.active,
-            open: phase.active
+            show: phase.active
           }
           Match.where(match_params).first_or_create
         end

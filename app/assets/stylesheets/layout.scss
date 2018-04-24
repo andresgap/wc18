@@ -2,8 +2,8 @@
 $white: #FFFFFF;
 $black: #000000;
 $gray: #ECECEC;
-$blue: #1B303A;
-$titles: #00b7d6;
+$blue: #0f4583;
+$titles: #2e2e2e;
 $link: #00b7d6;
 $link-hover: #0d4762;
 
@@ -43,4 +43,5 @@ div.alert {
 .title {
   color: $titles;
   display: inline-block;
+  text-transform: uppercase;
 }

@@ -23,4 +23,8 @@ module ApplicationHelper
     }.fetch(flash_type, 'question-sign')
   end
 
+  def yes_no_label(value)
+    value ? 'Yes' : 'No'
+  end
+
 end

@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 20180417051545) do
 
   create_table "matches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "number"
     t.integer "team1_id"
     t.integer "team2_id"
     t.integer "phase_id"
@@ -21,7 +22,8 @@ ActiveRecord::Schema.define(version: 20180417051545) do
     t.integer "team2_score"
     t.integer "tournament_id"
     t.boolean "active", default: false
-    t.boolean "open", default: false
+    t.boolean "show", default: false
+    t.boolean "ended", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 20180417051545) do
     t.integer "match_id"
     t.integer "score1"
     t.integer "score2"
+    t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
