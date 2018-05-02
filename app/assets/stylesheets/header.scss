@@ -1,7 +1,8 @@
 
 // Header
 #navbar-top {
-  background-color: $blue;
+  background: image-url('background-header.jpg') no-repeat center center;
+  background-size: cover;
   border: 0px;
   border-radius: 0px;
   margin-bottom: 0px;
@@ -17,7 +18,7 @@
 #navbar-top .navbar-nav > .open > a,
 #navbar-top .navbar-nav > .open > a:hover,
 #navbar-top .navbar-nav > .open > a:focus {
-  background-color: $blue;
+  background-color: transparent;
 }
 
 #navbar-top .navbar-toggle {
@@ -29,19 +30,39 @@
 }
 
 #navbar-top .logo {
-  width: 100px;
-  heigth: 100px;
+}
+
+#header-menu {
+  margin-top: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
 }
 
 // Menu
 #navbar-menu {
-  background-color: #CCC;
+  background-color: $blue;
   border: 0px;
   border-radius: 0px;
   margin-bottom: 0px;
 }
 #navbar-menu .nav  {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   text-transform: uppercase;
 }
+
+#navbar-menu .navbar-nav > li > a {
+  color: #FFF;
+}
+#navbar-menu .navbar-nav > li > a:hover {
+  color: #F00;
+}
+#navbar-menu .navbar-nav > li.active a {
+  background-color: $skyblue;
+}
+#navbar-menu .navbar-nav > li.active a:hover {
+  color: #FFF;
+}
+

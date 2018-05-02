@@ -3,22 +3,13 @@
 @import "layout";
 
 body {
-  background: image-url('background.png') no-repeat center center;
+  background: image-url('backgroundb.jpg') no-repeat center center;
   background-size: cover;
 }
 
 #signout-page .logo {
   margin-top: 80px;
-  margin-bottom: 80px;
-  width: 200px;
-}
-
-#signout-page .text1 {
-  margin-bottom: 50px;
-}
-
-#signout-page .text2 {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 #signout-page .signin-btn {
