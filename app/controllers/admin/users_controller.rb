@@ -4,12 +4,17 @@ class Admin::UsersController < ApplicationController
   before_action :admin_access?
   before_action :load_entity_object, only: [:edit, :update]
   before_action :load_all_entity_objects, only: [:index, :update]
+  before_action :set_active_page, only: [:index]
 
   def update
     @user.update(entity_parameters)
   end
 
   private
+
+  def set_active_page
+    @active_page = 'admin'
+  end
 
   def entity_parameters
     params.require(:user).permit(:admin)

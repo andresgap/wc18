@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :prediction_sets
 
+  scope :active, -> { where(active: true) }
+
   def password_required?
     new_record? ? false : super
   end

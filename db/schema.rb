@@ -14,16 +14,17 @@ ActiveRecord::Schema.define(version: 20180417051545) do
 
   create_table "matches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "number"
+    t.datetime "date"
+    t.integer "phase_id"
     t.integer "team1_id"
     t.integer "team2_id"
-    t.integer "phase_id"
-    t.datetime "date"
     t.integer "team1_score"
     t.integer "team2_score"
+    t.string "team1_label"
+    t.string "team2_label"
     t.integer "tournament_id"
-    t.boolean "active", default: false
-    t.boolean "show", default: false
-    t.boolean "ended", default: false
+    t.boolean "ready", default: true
+    t.boolean "closed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180417051545) do
   create_table "prediction_sets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
     t.integer "tournament_id"
+    t.integer "points", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

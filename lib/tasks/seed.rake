@@ -46,8 +46,7 @@ namespace :wc18 do
             team2: team2,
             phase: phase,
             tournament: tournament_obj,
-            active: phase.active,
-            show: phase.active
+            ready: phase.active
           }
           Match.where(match_params).first_or_create
         else
@@ -56,8 +55,9 @@ namespace :wc18 do
             date: date,
             phase: phase,
             tournament: tournament_obj,
-            active: phase.active,
-            show: phase.active
+            team1_label: match.team1_label,
+            team2_label: match.team2_label,
+            ready: phase.active
           }
           Match.where(match_params).first_or_create
         end

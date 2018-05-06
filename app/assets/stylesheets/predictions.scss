@@ -1,62 +1,36 @@
 
-.flag {
-  border: 1px solid #DDD;
+
+#predictions-table {
+  width: 900px;
+  margin: 0px auto;
 }
 
-.prediction-box {
-  padding: 10px;
-  border-bottom: 1px solid #DDD;
-}
-
-
-.prediction-box .match-box {
-  
-}
-
-.prediction-box .name-left {
-  display: inline-block;
-  min-width: 100px;
-  margin-left: 20px;
-}
-.prediction-box .name-right {
-  display: inline-block;
-  min-width: 100px;
-  margin-right: 20px;
-  text-align: right;
-}
-
-.prediction-box input.score {
-  width: 40px;
-  margin-left: 20px;
-  margin-right: 20px;
+#predictions-table input.score {
+  width: 45px;
   text-align: center;
   border: 1px solid #999;
+  font-size: 14px;
+  height: 30px;
 }
 
-.prediction-box input.score[disabled=disabled] {
+#predictions-table input.score[disabled=disabled] {
   background-color: #CCC;
 }
 
-.prediction-box .group {
-  margin-left: 20px;
-  display: inline-block;
+#predictions-table .flag {
+  margin: 0px 5px;
+  border: 1px solid #999;
+  height: 30px;
+}
+
+#predictions-table td {
+  line-height: 30px;
+}
+
+#predictions-table .score-label {
   min-width: 60px;
-  font-weight: bold;
 }
 
-.prediction-box .score_vs {
-  display: inline-block;
-  min-width: 30px;
-  text-align: center;
-}
-
-.prediction-box .points {
-  display: inline-block;
-  min-width: 30px;
-  text-align: center;
-}
-
-.submit-row {
-  margin: 30px;
-  text-align: center;
+#predictions-list .submit-button {
+  margin-top: 30px;
 }

@@ -1,16 +1,34 @@
-<% ended = prediction.match.ended %>
+<% closed = prediction.match.closed %>
 
-<div class="prediction-box">
-  <span class="date"><%= I18n.l prediction.match.date, format: :short %></span>
-  <span class="group"><%= prediction.match.phase.name %></span>
-  <span class="match-box">
-    <span class="name-right"><%= prediction.match.team1.name %></span>
-    <%= image_tag(prediction.match.team1.flag, class: 'flag') %>
-    <%= f.number_field :score1, maxlength: 2, min: 0, max: 99, class: 'score', disabled: ended %>
-    <span class="score_vs"><%= prediction.match.score_label %></span>
-    <%= f.number_field :score2, maxlength: 2, min: 0, max: 99, class: 'score', disabled: ended %>
-    <%= image_tag(prediction.match.team2.flag, class: 'flag') %>
-    <span class="name-left"><%= prediction.match.team2.name %></span>
-  </span>
-  <span class="points"><%= prediction.points_label %></span>
-</div>
+<tr class="prediction-row">
+  <td class="text-center"><%= prediction.match.number %></td>
+  <td><%= I18n.l prediction.match.date, format: :short %></td>
+  <td><%= prediction.match.phase.name %></td>
+  <td class="text-right">
+    <% if prediction.match.ready %>
+      <span class="hidden-sm hidden-xs"><%= prediction.match.team1.name %></span>
+      <%= image_tag(prediction.match.team1.flag, class: 'flag') %>
+    <% else %>
+      <span><%= prediction.match.team1_label %></span>
+      <%= image_tag('flags/none.png', class: 'flag') %>
+    <% end %>
+    <%= f.number_field :score1, maxlength: 2, min: 0, max: 99, class: 'score', disabled: closed %>
+  </td>
+  <td class="text-center score-label"><%= prediction.match.score_label %></td>
+  <td>
+    <%= f.number_field :score2, maxlength: 2, min: 0, max: 99, class: 'score', disabled: closed %>
+    <% if prediction.match.ready %>
+      <%= image_tag(prediction.match.team2.flag, class: 'flag') %>
+      <span class="hidden-sm hidden-xs"><%= prediction.match.team2.name %></span>
+    <% else %>
+      <%= image_tag('flags/none.png', class: 'flag') %>
+      <span><%= prediction.match.team2_label %></span>
+    <% end %>
+  </td>
+  <td class="text-center"><%= prediction.points %></td>
+</tr>
+
+
+
+
+

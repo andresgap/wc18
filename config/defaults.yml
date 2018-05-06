@@ -329,33 +329,65 @@ tournaments:
         phase: G
       - date: '2018-06-30 08:00 CST'
         phase: round_of_16
+        team1_label: 1C
+        team2_label: 2D
       - date: '2018-06-30 12:00 CST'
         phase: round_of_16
+        team1_label: 1A
+        team2_label: 2B
       - date: '2018-07-01 08:00 CST'
         phase: round_of_16
+        team1_label: 1B
+        team2_label: 2A
       - date: '2018-07-01 12:00 CST'
         phase: round_of_16
+        team1_label: 1D
+        team2_label: 2C
       - date: '2018-07-02 08:00 CST'
         phase: round_of_16
+        team1_label: 1E
+        team2_label: 2F
       - date: '2018-07-02 12:00 CST'
         phase: round_of_16
+        team1_label: 1G
+        team2_label: 2H
       - date: '2018-07-03 08:00 CST'
         phase: round_of_16
+        team1_label: 1F
+        team2_label: 2E
       - date: '2018-07-03 12:00 CST'
         phase: round_of_16
+        team1_label: 1H
+        team2_label: 2G
       - date: '2018-07-06 08:00 CST'
         phase: quarter_finals
+        team1_label: W49
+        team2_label: W50
       - date: '2018-07-06 12:00 CST'
         phase: quarter_finals
+        team1_label: W53
+        team2_label: W54
       - date: '2018-07-07 08:00 CST'
         phase: quarter_finals
+        team1_label: W55
+        team2_label: W56
       - date: '2018-07-07 12:00 CST'
         phase: quarter_finals
+        team1_label: W51
+        team2_label: W52
       - date: '2018-07-10 12:00 CST'
         phase: semi_finals
+        team1_label: W57
+        team2_label: W58
       - date: '2018-07-11 12:00 CST'
         phase: semi_finals
+        team1_label: W59
+        team2_label: W60
       - date: '2018-07-14 08:00 CST'
         phase: third_place
+        team1_label: L61
+        team2_label: L62
       - date: '2018-07-15 09:00 CST'
         phase: final
+        team1_label: W61
+        team2_label: W62

@@ -7,7 +7,7 @@ class Match < ApplicationRecord
   has_many :predictions
 
   def score_label
-    ended ? "#{team1_score} - #{team2_score}" : 'vs'
+    closed ? "#{team1_score} - #{team2_score}" : 'vs'
   end
 
 end

@@ -1,0 +1,21 @@
+
+
+#leaderboard-table {
+  width: 500px;
+  margin: 0px auto;
+  min-height: 400px;
+}
+
+#leaderboard-table .user-image {
+  width: 30px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+#leaderboard-table td.number {
+  width: 30px;
+}
+
+#leaderboard-table td {
+  line-height: 30px;
+}

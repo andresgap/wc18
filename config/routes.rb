@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   resources :predictions, only: [:index, :show, :edit, :update]
+  resources :leaderboard, only: [:index]
+  resources :help, only: [:index]
 
   namespace :admin do
     resources :users, only: [:index, :edit, :update]

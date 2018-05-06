@@ -1,16 +1,18 @@
 <header class="nav-header">
   <nav id="navbar-top" class="navbar navbar-default">
     <div class="container">
-      <div class="navbar-header">
-        <%= link_to(root_path, class: 'navbar-brand') do %>
-          <%= image_tag('logo-header.png', alt: 'logo', class: 'img-responsive logo') %>
-        <% end %>
-      </div>
-      <div id="header-menu" class="navbar-right">
-        <% if user_signed_in? %>
-          <%= image_tag(current_user.picture, alt: 'picture', class: 'user-img img-circle') %>
-          <%= current_user.name %>
-        <% end %>
+      <div class="row">
+        <div class="navbar-header">
+          <%= link_to(root_path, class: 'navbar-brand') do %>
+            <%= image_tag('logo-header.png', alt: 'logo', class: 'img-responsive logo') %>
+          <% end %>
+        </div>
+        <div id="header-menu" class="navbar-right">
+          <% if user_signed_in? %>
+            <%= image_tag(current_user.picture, alt: 'picture', class: 'user-img') %>
+            <span class="user-name"><%= current_user.name %></span>
+          <% end %>
+        </div>
       </div>
     </div>
   </nav>
@@ -23,16 +25,18 @@
               <%= link_to('Predictions', predictions_path) %>
             </li>
             <li class="<%= 'active' if @active_page == 'leaderboard' %>">
-              <%= link_to('Leaderboard', predictions_path) %>
+              <%= link_to('Leaderboard', leaderboard_index_path) %>
             </li>
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user.admin? %>
-              <li><%= link_to('Admin', admin_users_path) %></li>
+              <li class="<%= 'active' if @active_page == 'admin' %>">
+                <%= link_to('Admin', admin_matches_path) %>
+              </li>
             <% end %>
             <li class="<%= 'active' if @active_page == 'help' %>">
-              <%= link_to('Help', predictions_path) %>
+              <%= link_to('Help', help_index_path) %>
             </li>
             <li>
               <%= link_to('Sign Out', destroy_user_session_path, method: :delete) %>

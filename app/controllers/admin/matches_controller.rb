@@ -3,13 +3,18 @@ class Admin::MatchesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :admin_access?
+  before_action :set_active_page, only: [:index]
 
   private
+
+  def set_active_page
+    @active_page = 'admin'
+  end
 
   def entity_parameters
     params
       .require(:match)
-      .permit(:team1_id, :team2_id, :team1_score, :team2_score, :show, :ended)
+      .permit(:team1_id, :team2_id, :team1_score, :team2_score, :ready, :closed)
   end
 
   def load_entity_object_by_id
