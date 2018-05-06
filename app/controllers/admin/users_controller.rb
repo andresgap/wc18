@@ -17,7 +17,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def entity_parameters
-    params.require(:user).permit(:admin)
+    params.require(:user).permit(:admin, :active)
   end
 
   def load_entity_object

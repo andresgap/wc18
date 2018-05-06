@@ -4,6 +4,7 @@ class Admin::MatchesController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_access?
   before_action :set_active_page, only: [:index]
+  before_action :load_teams, only: [:edit]
 
   private
 
@@ -25,5 +26,8 @@ class Admin::MatchesController < ApplicationController
     @all_entity_objects = entity.order(:number)
   end
 
+  def load_teams
+    @teams = Team.all.sort_by(&:name)
+  end
 
 end
