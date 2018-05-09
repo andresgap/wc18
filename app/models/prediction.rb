@@ -5,7 +5,7 @@ class Prediction < ApplicationRecord
   validate :match_open?
 
   def match_open?
-    errors.add(:time_error, ", this match is already closed") if match.closed?
+    errors.add(:match_error, "this match is already closed!") if match.closed?
   end
 
 end
