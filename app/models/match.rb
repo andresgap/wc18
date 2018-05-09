@@ -10,4 +10,12 @@ class Match < ApplicationRecord
     closed ? "#{team1_score} - #{team2_score}" : 'vs'
   end
 
+  def last_hour?
+    date - 1.hour < Time.current && !closed?
+  end
+
+  def closed?
+    date - 5.minutes < Time.current
+  end
+
 end

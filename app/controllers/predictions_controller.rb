@@ -12,9 +12,9 @@ class PredictionsController < ApplicationController
   end
 
   def update
-    prediction_set.update_attributes!(prediction_set_params)
+    prediction_set.update_attributes(prediction_set_params)
     if prediction_set.errors.any?
-      flash[:error] = I18n.t('form.error')
+      flash[:error] = prediction_set.errors.full_messages.first
     else
       flash[:notice] = I18n.t('form.sucess')
     end
