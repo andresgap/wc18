@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :predictions, only: [:index, :show, :edit, :update]
+  resources :predictions, only: [:index, :show, :update]
   resources :leaderboard, only: [:index]
   resources :help, only: [:index]
 

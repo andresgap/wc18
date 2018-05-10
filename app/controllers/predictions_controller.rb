@@ -11,6 +11,12 @@ class PredictionsController < ApplicationController
         .first
   end
 
+  def show
+    @prediction_set = PredictionSet.find(params[:id])
+  rescue
+    redirect_to predictions_path
+  end
+
   def update
     if prediction_set.update_attributes(prediction_set_params)
       flash[:notice] = I18n.t('form.sucess')

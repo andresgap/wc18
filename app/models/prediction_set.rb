@@ -14,4 +14,10 @@ class PredictionSet < ApplicationRecord
     end
   end
 
+  def closed_predictions
+    predictions
+      .includes(match: [:team1, :team2, :phase])
+      .select { |prediction| prediction.match.closed? }
+  end
+
 end

@@ -1,0 +1,19 @@
+<tr class="prediction-row">
+  <td class="text-center"><%= prediction.match.number %></td>
+  <td class="">
+    <%= local_time(prediction.match.date, :long) %>
+  </td>
+  <td><%= prediction.match.phase.name %></td>
+  <td class="text-right">
+    <span class="hidden-sm hidden-xs"><%= prediction.match.team1.name %></span>
+    <%= image_tag(prediction.match.team1.flag, class: 'flag') %>
+    <span class="score-box"><%= prediction.score1 || '-' %></span>
+  </td>
+  <td class="text-center score-label"><%= prediction.match.score_label %></td>
+  <td>
+    <span class="score-box"><%= prediction.score2 || '-' %></span>
+    <%= image_tag(prediction.match.team2.flag, class: 'flag') %>
+    <span class="hidden-sm hidden-xs"><%= prediction.match.team2.name %></span>
+  </td>
+  <td class="text-center"><%= prediction.points %></td>
+</tr>

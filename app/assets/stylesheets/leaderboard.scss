@@ -1,9 +1,7 @@
 
 
 #leaderboard-table {
-  width: 500px;
   margin: 0px auto;
-  min-height: 400px;
 }
 
 #leaderboard-table .user-image {
@@ -18,4 +16,14 @@
 
 #leaderboard-table td {
   line-height: 30px;
+}
+
+span.score-box {
+  display: inline-block;
+  width: 45px;
+  text-align: center;
+  border: 1px solid #999;
+  font-size: 14px;
+  height: 30px;
+  background-color: #CCC;
 }
