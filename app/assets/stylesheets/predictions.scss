@@ -1,20 +1,26 @@
 
 
-#predictions-table {
-  width: 900px;
-  margin: 0px auto;
-}
-
-#predictions-table input.score {
+input.score {
   width: 45px;
   text-align: center;
   border: 1px solid #999;
   font-size: 14px;
   height: 30px;
 }
-
-#predictions-table input.score[disabled=disabled] {
+input.score[disabled=disabled] {
   background-color: #CCC;
+}
+
+.team-selector {
+  width: 150px;
+  font-size: 14px;
+  height: 30px;
+  border: 1px solid #999;
+}
+
+#predictions-table {
+  width: 900px;
+  margin: 0px auto;
 }
 
 #predictions-table .flag {

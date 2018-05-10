@@ -15,7 +15,7 @@ class Admin::MatchesController < ApplicationController
   def entity_parameters
     params
       .require(:match)
-      .permit(:team1_id, :team2_id, :team1_score, :team2_score, :ready, :closed)
+      .permit(:team1_id, :team2_id, :team1_score, :team2_score, :ready)
   end
 
   def load_entity_object_by_id

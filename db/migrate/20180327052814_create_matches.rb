@@ -12,7 +12,6 @@ class CreateMatches < ActiveRecord::Migration[5.1]
       t.string :team2_label
       t.integer :tournament_id
       t.boolean :ready, default: true
-      t.boolean :closed, default: false
 
       t.timestamps
     end

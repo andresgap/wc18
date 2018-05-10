@@ -2,45 +2,55 @@
   <div class="modal-body">
     <div class="errors"></div>
     <div class="row">
-      <div class="form-group col-sm-6">
-        <span class="control-label"><%= match.phase.name %></span>
-      </div>
       <div class="form-group col-sm-2">
-        <%= f.check_box :ready %>
-        <%= f.label :ready, class: 'control-label' %>
+        <span class="control-label">Match: <%= match.number %></span>
       </div>
-      <div class="form-group col-sm-4">
-        <%= f.check_box :closed %>
-        <%= f.label :closed, class: 'control-label' %>
-        <%= "(#{I18n.l match.date, format: :short})" %>
+      <div class="form-group col-sm-5">
+        <span class="control-label">Date: <%= local_time(match.date, :long)%></span>
+      </div>
+      <div class="form-group col-sm-5">
+        <span class="control-label">Phase: <%= match.phase.name %></span>
       </div>
     </div>
     <% if match.phase.level == 1 %>
       <div class="row">
-        <div class="form-group col-sm-4">
+        <div class="form-group col-sm-2">
+          <span>Score: </span>
+        </div>
+        <div class="form-group col-sm-5">
           <span class="control-label"><%= match.team1.name %></span>
+          <%= f.number_field :team1_score, maxlength: 2, min: 0, max: 99, class: 'score' %>
         </div>
-        <div class="form-group col-sm-2">
-          <%= f.number_field :team1_score, maxlength: 2, min: 0, max: 99, class: 'form-control' %>
-        </div>
-        <div class="form-group col-sm-4">
+        <div class="form-group col-sm-5">
           <span class="control-label"><%= match.team2.name %></span>
-        </div>
-        <div class="form-group col-sm-2">
-          <%= f.number_field :team2_score, maxlength: 2, min: 0, max: 99, class: 'form-control' %>
+          <%= f.number_field :team2_score, maxlength: 2, min: 0, max: 99, class: 'score' %>
         </div>
       </div>
     <% else %>
       <div class="row">
-        <div class="form-group col-sm-6">
-          <%= f.label :team1_id, class: 'control-label' %>
-          <%= f.collection_select(:team1_id, teams, :id, :name,
-            { include_blank: true }, { class: 'form-control' }) %>
+        <div class="form-group col-sm-2">
+          <span>Teams: <%= f.check_box :ready %></span>
         </div>
-        <div class="form-group col-sm-6">
-          <%= f.label :team2_id, class: 'control-label' %>
+        <div class="form-group col-sm-5">
+          <%= f.collection_select(:team1_id, teams, :id, :name,
+            { include_blank: true }, { class: ' team-selector' }) %>
+        </div>
+        <div class="form-group col-sm-5">
           <%= f.collection_select(:team2_id, teams, :id, :name,
-            { include_blank: true }, { class: 'form-control' }) %>
+            { include_blank: true }, { class: ' team-selector' }) %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-2">
+          <span>Score: </span>
+        </div>
+        <div class="form-group col-sm-5">
+          <span class="control-label">Team 1</span>
+          <%= f.number_field :team1_score, maxlength: 2, min: 0, max: 99, class: 'score' %>
+        </div>
+        <div class="form-group col-sm-5">
+          <span class="control-label">Team 2</span>
+          <%= f.number_field :team2_score, maxlength: 2, min: 0, max: 99, class: 'score' %>
         </div>
       </div>
     <% end %>
