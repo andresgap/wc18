@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'rails-i18n', '~> 5.1'
 gem 'local_time'
+gem 'chartjs-ror'
 
 # User Authentication
 gem 'devise'

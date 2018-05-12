@@ -9,6 +9,7 @@ class PredictionsController < ApplicationController
         .where(user: current_user, tournament: tournament)
         .includes(predictions: { match: [:team1, :team2, :phase] })
         .first
+    @stats = Stats.new.list
   end
 
   def show

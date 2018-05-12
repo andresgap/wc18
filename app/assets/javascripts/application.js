@@ -15,4 +15,5 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require local-time
+//= require Chart.min
 //= require_tree .

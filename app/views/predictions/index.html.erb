@@ -4,7 +4,7 @@
   <div class="row" id="predictions-list">
     <div class="col-sm-12">
       <%= form_for(@prediction_set, url: prediction_path(@prediction_set), method: :put) do |f| %>
-        <table id="predictions-table" class="table table-striped table-hover">
+        <table id="predictions-table" class="table table-hover">
           <thead>
             <th class="text-center">Number</th>
             <th>Date</th>
@@ -16,7 +16,7 @@
           </thead>
           <tbody>
             <%= f.fields_for :predictions do |fp| %>
-              <%= render 'prediction', f: fp, prediction: fp.object %>
+              <%= render 'prediction', f: fp, prediction: fp.object, stats: @stats %>
             <% end %>
           </tbody>
         </table>

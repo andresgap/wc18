@@ -1,0 +1,33 @@
+<%
+  team1 = match.ready? ? match.team1.name : match.team1_label
+  team2 = match.ready? ? match.team2.name : match.team2_label
+  data = {
+    labels: [],
+    datasets: [{
+      data: [stats.team1, stats.tie, stats.team2],
+      backgroundColor: [
+        "#60BD68",
+        "#DECF3F",
+        "#F15854"
+      ],
+      label: 'Dataset 1'
+    }],
+    labels: [
+      "#{stats.team1}% #{team1}",
+      "#{stats.tie}% Tie",
+      "#{stats.team2}% #{team2}"
+    ]
+  }
+  options = {
+    responsive: false,
+    width: 300,
+    height: 80,
+    legend: {
+      position: 'left'
+    }
+  }
+%>
+
+<div class="chart-box">
+  <%= pie_chart(data, options) %>
+</div>

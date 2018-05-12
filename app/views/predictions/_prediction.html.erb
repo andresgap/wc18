@@ -1,7 +1,11 @@
-<% closed = prediction.match.closed? %>
+<%
+  closed = prediction.match.closed?
+  number = prediction.match.number
+%>
 
-<tr class="prediction-row <%= 'closing' if prediction.match.last_hour? %>">
-  <td class="text-center"><%= prediction.match.number %></td>
+<tr class="clickable prediction-row <%= 'closing' if prediction.match.last_hour? %>" 
+  data-toggle="collapse" id="row<%= number %>" data-target=".row<%= number %>">
+  <td class="text-center"><%= number %></td>
   <td class="">
     <%= local_time(prediction.match.date, :long) %>
   </td>
@@ -28,4 +32,10 @@
     <% end %>
   </td>
   <td class="text-center"><%= prediction.points %></td>
+</tr>
+
+<tr class="collapse row<%= number %>">
+  <td colspan="7" class="stats">
+    <%= render 'stats', stats: stats[prediction.match.number], match: prediction.match %>
+  </td>
 </tr>

@@ -63,6 +63,8 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11.0)
     byebug (10.0.1)
+    chartjs-ror (3.6.2)
+      rails (>= 3.1)
     codeclimate-engine-rb (0.4.1)
       virtus (~> 1.0)
     coderay (1.1.2)
@@ -293,6 +295,7 @@ DEPENDENCIES
   brakeman
   bullet
   byebug
+  chartjs-ror
   coffee-rails (~> 4.2)
   devise
   jbuilder (~> 2.5)
