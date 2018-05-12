@@ -1,4 +1,4 @@
-class LeaderboardController < ApplicationController
+class LeaderboardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_active_page, only: [:index]
 
@@ -9,7 +9,7 @@ class LeaderboardController < ApplicationController
   private
 
   def set_active_page
-    @active_page = 'leaderboard'
+    @active_page = 'leaderboards'
   end
 
   def users_with_predictions

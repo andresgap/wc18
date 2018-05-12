@@ -1,5 +1,7 @@
 <div class="container page">
-  <h1 class="title"><%= @prediction_set.user.name %> Predictions</h1>
+  <h1 class="title">
+    <%= @prediction_set.user.name %> Predictions (<%= @prediction_set.points %> points)
+  </h1>
 
   <div class="row" id="predictions-list">
     <div class="col-sm-12">

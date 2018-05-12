@@ -24,10 +24,9 @@
             <li class="<%= 'active' if @active_page == 'predictions' %>">
               <%= link_to('Predictions', predictions_path) %>
             </li>
-            <li class="<%= 'active' if @active_page == 'leaderboard' %>">
-              <%= link_to('Leaderboard', leaderboard_index_path) %>
+            <li class="<%= 'active' if @active_page == 'leaderboards' %>">
+              <%= link_to('Leaderboards', leaderboards_path) %>
             </li>
-
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user.admin? %>
@@ -35,8 +34,8 @@
                 <%= link_to('Admin', admin_matches_path) %>
               </li>
             <% end %>
-            <li class="<%= 'active' if @active_page == 'help' %>">
-              <%= link_to('Help', help_index_path) %>
+            <li class="<%= 'active' if @active_page == 'rules' %>">
+              <%= link_to('Rules', rules_path) %>
             </li>
             <li>
               <%= link_to('Sign Out', destroy_user_session_path, method: :delete) %>

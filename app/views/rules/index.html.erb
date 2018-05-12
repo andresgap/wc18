@@ -1,0 +1,39 @@
+<div class="container page">
+  <h1 class="title">Rules</h1>
+
+  <h3>Points</h3>
+  <p>There are two possible ways of winning points: </p>
+  <p><b>Win/Tie Points:</b> This points are obtained if the prediction is succesful with the correct winner or tie result, but without the exact score of the match.</p>
+  <p><b>Exact Score Points:</b> This points are obtained if the prediction is succesful with the correct winner or tie result and the exact score of the match. </p>
+  <p>Each phase grants a different set of points, following this table: </p>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <table id="phases-table" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th class="text-center">Win/Tie Points</th>
+            <th class="text-center">Exact Score Points</th>
+          </tr>
+        </thead>
+        <tr>
+          <td class="">Groups</td>
+          <td class="text-center number">1</td>
+          <td class="text-center number">3</td>
+        </tr>
+        <% @phases.each do |phase| %>
+          <tr>
+            <td class=""><%= phase.name %></td>
+            <td class="text-center number"><%= phase.small_points %></td>
+            <td class="text-center number"><%= phase.big_points %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+
+  <h3>Fraud</h3>
+  <p>This site was created with the only purpose of having fun guessing match results,
+  so in case any fraud or illegal activity is detected for a specific account, we will proceed to disable this account inmediately.</p>
+</div>

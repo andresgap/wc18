@@ -7,7 +7,7 @@ class AuthenticationController < Devise::OmniauthCallbacksController
   private
 
   def valid_user?
-    user && user.valid?
+    user && user.valid? && user.active
   end
 
   def user

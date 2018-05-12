@@ -3,7 +3,7 @@
 input.score {
   width: 45px;
   text-align: center;
-  border: 1px solid #999;
+  border: 1px solid #BBB;
   font-size: 14px;
   height: 30px;
 }
@@ -15,7 +15,7 @@ input.score[disabled=disabled] {
   width: 150px;
   font-size: 14px;
   height: 30px;
-  border: 1px solid #999;
+  border: 1px solid #BBB;
 }
 
 #predictions-table {
@@ -24,7 +24,7 @@ input.score[disabled=disabled] {
 
 #predictions-table .flag {
   margin: 0px 5px;
-  border: 1px solid #999;
+  border: 1px solid #BBB;
   height: 30px;
 }
 
@@ -42,6 +42,10 @@ input.score[disabled=disabled] {
 
 #predictions-list .submit-button {
   margin-top: 30px;
+}
+
+tr.clickable {
+  cursor: pointer;
 }
 
 td.stats {
