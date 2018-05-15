@@ -16,14 +16,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(user)
-    if user.sign_in_count < 2 && !PredictionSet.exists?(user: user, tournament: tournament)
-      PredictionSet.build(user, tournament)
+    if user.sign_in_count < 2 && !PredictionSet.exists?(user: user)
+      PredictionSet.build(user)
     end
     super(user)
-  end
-
-  def tournament
-    @tournament ||= Tournament.first
   end
 
 end

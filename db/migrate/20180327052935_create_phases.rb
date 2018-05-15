@@ -6,7 +6,6 @@ class CreatePhases < ActiveRecord::Migration[5.1]
       t.integer :small_points
       t.integer :big_points
       t.boolean :active
-      t.integer :tournament_id
 
       t.timestamps
     end

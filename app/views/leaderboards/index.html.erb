@@ -1,28 +1,29 @@
 <div class="container page">
   <h1 class="title">Leaderboard</h1>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <table id="leaderboard-table" class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th>Position</th>
-            <th>Name</th>
-            <th>Points</th>
-          </tr>
-        </thead>
-        <% @prediction_sets.each_with_index do |set, index| %>
-          <tr>
-            <td class="text-center number"><%= index + 1 %></td>
-            <td>
-              <%= image_tag(set.user.picture, alt: 'picture', class: 'user-image') %>
-              <%= link_to(set.user.name, prediction_path(set)) %>
-            </td>
-            <td class="text-center number"><%= set.points %></td>
-          </tr>
-        <% end %>
-      </table>
+  <ul class="nav nav-tabs">
+    <li class="nav-item active">
+      <a class="nav-link" data-toggle="tab" href="#panel-general" role="tab"  role="tab">General</a>
+    </li>
+    <% @leaderboards.each do |leaderboard| %>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#panel-<%= leaderboard.name.downcase %>"
+          role="tab">
+          <%= leaderboard.name %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="tab-content card">
+    <div class="tab-pane active" id="panel-general" role="tabpanel">
+      <%= render 'leaderboard', users: @users_predictions %>
     </div>
+    <% @leaderboards.each do |leaderboard| %>
+      <div class="tab-pane" id="panel-<%= leaderboard.name.downcase %>" role="tabpanel">
+        <%= render 'leaderboard', users: leaderboard.users_predictions %>
+      </div>
+    <% end %>
   </div>
 
 </div>

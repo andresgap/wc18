@@ -6,7 +6,7 @@ class PredictionsController < ApplicationController
   def index
     @prediction_set =
       PredictionSet
-        .where(user: current_user, tournament: tournament)
+        .where(user: current_user)
         .includes(predictions: { match: [:team1, :team2, :phase] })
         .first
     @stats = Stats.new.list

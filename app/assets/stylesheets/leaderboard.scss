@@ -1,20 +1,21 @@
 
 
-#leaderboard-table {
+.leaderboard-table {
   margin: 0px auto;
 }
 
-#leaderboard-table .user-image {
+.leaderboard-table .user-image {
   width: 30px;
   margin-right: 10px;
   border-radius: 5px;
 }
 
-#leaderboard-table td.number {
+.leaderboard-table td.number {
   width: 30px;
+  line-height: 30px;
 }
 
-#leaderboard-table td {
+.leaderboard-table td {
   line-height: 30px;
 }
 

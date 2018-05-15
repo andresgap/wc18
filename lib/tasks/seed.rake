@@ -9,61 +9,58 @@ namespace :wc18 do
     end
     puts 'Users created'
 
-    # Tournaments
-    puts 'Creating default tournaments...'
-    DEFAULT_TOURNAMENTS.each do |tournament|
-      tournament_obj = Tournament.where(code: tournament.code).first_or_create
+    # Phases
+    puts 'Creating default phases...'
+    DEFAULT_PHASES.each do |phase|
+      Phase.where(
+        code: phase.code,
+        level: phase.level,
+        small_points: phase.small_points,
+        big_points: phase.big_points,
+        active: phase.active
+      ).first_or_create
+    end
+    puts 'Phases created'
 
-      # Phases
-      puts '  Creating default phases...'
-      tournament.phases.each do |phase|
-        Phase
-          .where(code: phase.code, level: phase.level, small_points: phase.small_points,
-            big_points: phase.big_points, active: phase.active, tournament: tournament_obj)
-          .first_or_create
-      end
+    # Teams
+    puts 'Creating default teams...'
+    DEFAULT_TEAMS.each do |team|
+      Team.where(code: team.code, group: team.group).first_or_create
+    end
+    puts 'Teams created'
 
-      # Teams
-      puts '  Creating default teams...'
-      tournament.teams.each do |team|
-        Team.where(code: team.code, group: team.group, tournament: tournament_obj).first_or_create
-      end
-
-      # Matches
-      puts '  Creating default matches...'
-      teams = Team.all
-      phases = Phase.all
-      tournament.matches.each_with_index do |match, index|
-        date = DateTime.parse(match.date)
-        phase = phases.find { |phase| phase.code == match.phase }
-        if match.team1 && match.team2
-          team1 = teams.find { |team| team.code == match.team1 }
-          team2 = teams.find { |team| team.code == match.team2 }
-          match_params = {
-            number: index + 1,
-            date: date,
-            team1: team1,
-            team2: team2,
-            phase: phase,
-            tournament: tournament_obj,
-            ready: phase.active
-          }
-          Match.where(match_params).first_or_create
-        else
-          match_params = {
-            number: index + 1,
-            date: date,
-            phase: phase,
-            tournament: tournament_obj,
-            team1_label: match.team1_label,
-            team2_label: match.team2_label,
-            ready: phase.active
-          }
-          Match.where(match_params).first_or_create
-        end
+    # Matches
+    puts 'Creating default matches...'
+    teams = Team.all
+    phases = Phase.all
+    DEFAULT_MATCHES.each_with_index do |match, index|
+      date = DateTime.parse(match.date)
+      phase = phases.find { |phase| phase.code == match.phase }
+      if match.team1 && match.team2
+        team1 = teams.find { |team| team.code == match.team1 }
+        team2 = teams.find { |team| team.code == match.team2 }
+        match_params = {
+          number: index + 1,
+          date: date,
+          team1: team1,
+          team2: team2,
+          phase: phase,
+          ready: phase.active
+        }
+        Match.where(match_params).first_or_create
+      else
+        match_params = {
+          number: index + 1,
+          date: date,
+          phase: phase,
+          team1_label: match.team1_label,
+          team2_label: match.team2_label,
+          ready: phase.active
+        }
+        Match.where(match_params).first_or_create
       end
     end
-    puts 'Tournament created'
+    puts 'Matches created'
 
   end
 end

@@ -5,7 +5,8 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable,
     :omniauthable, omniauth_providers: [:google_oauth2]
 
-  has_many :prediction_sets
+  has_one :prediction_set
+  has_and_belongs_to_many :leaderboards
 
   scope :active, -> { where(active: true) }
 

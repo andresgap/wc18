@@ -10,7 +10,6 @@ class CreateMatches < ActiveRecord::Migration[5.1]
       t.integer :team2_score
       t.string :team1_label
       t.string :team2_label
-      t.integer :tournament_id
       t.boolean :ready, default: true
 
       t.timestamps

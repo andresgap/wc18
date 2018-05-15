@@ -1,9 +1,10 @@
 class LeaderboardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_active_page, only: [:index]
+  before_action :users_predictions, only: [:index]
 
   def index
-    @prediction_sets = users_with_predictions
+    @leaderboards = current_user.leaderboards
   end
 
   private
@@ -12,12 +13,10 @@ class LeaderboardsController < ApplicationController
     @active_page = 'leaderboards'
   end
 
-  def users_with_predictions
-    PredictionSet
-      .where(tournament: tournament).includes(:user)
-      .all
-      .select { |set| set.user.active }
-      .sort_by { |set| [set.points, set.user.name] }
+  def users_predictions
+    @users_predictions ||=
+      User.active.includes(:prediction_set).all
+        .sort_by { |user| [user.prediction_set.points, user.name] }
   end
 
 end

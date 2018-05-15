@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417051545) do
+ActiveRecord::Schema.define(version: 20180515035449) do
+
+  create_table "leaderboards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "leaderboards_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "leaderboard_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["leaderboard_id", "user_id"], name: "index_leaderboards_users_on_leaderboard_id_and_user_id"
+    t.index ["user_id", "leaderboard_id"], name: "index_leaderboards_users_on_user_id_and_leaderboard_id"
+  end
 
   create_table "matches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "number"
@@ -22,9 +35,7 @@ ActiveRecord::Schema.define(version: 20180417051545) do
     t.integer "team2_score"
     t.string "team1_label"
     t.string "team2_label"
-    t.integer "tournament_id"
     t.boolean "ready", default: true
-    t.boolean "closed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,14 +46,12 @@ ActiveRecord::Schema.define(version: 20180417051545) do
     t.integer "small_points"
     t.integer "big_points"
     t.boolean "active"
-    t.integer "tournament_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "prediction_sets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
-    t.integer "tournament_id"
     t.integer "points", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,13 +70,6 @@ ActiveRecord::Schema.define(version: 20180417051545) do
   create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "code"
     t.string "group"
-    t.integer "tournament_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tournaments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
