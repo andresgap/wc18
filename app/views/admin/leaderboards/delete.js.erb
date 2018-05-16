@@ -1,0 +1,3 @@
+$("#leaderboards-modal-content")
+  .html("<%= escape_javascript(render 'delete', leaderboard: @entity_object ) %>");
+$("#leaderboards-modal").modal();

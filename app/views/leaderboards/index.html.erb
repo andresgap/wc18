@@ -1,5 +1,7 @@
 <div class="container page">
-  <h1 class="title">Leaderboard</h1>
+  <h2>
+    <span>Leaderboards</span>
+  </h2>
 
   <ul class="nav nav-tabs">
     <li class="nav-item active">
@@ -13,11 +15,16 @@
         </a>
       </li>
     <% end %>
+    <li class="nav-item pull-right">
+      <%= link_to myleaderboards_path do %>
+        <span class="glyphicon glyphicon-cog"></span>
+      <% end%>
+    </li>
   </ul>
 
   <div class="tab-content card">
     <div class="tab-pane active" id="panel-general" role="tabpanel">
-      <%= render 'leaderboard', users: @users_predictions %>
+      <%= render 'leaderboard', users: @general_predictions %>
     </div>
     <% @leaderboards.each do |leaderboard| %>
       <div class="tab-pane" id="panel-<%= leaderboard.name.downcase %>" role="tabpanel">

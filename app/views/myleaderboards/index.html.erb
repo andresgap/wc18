@@ -1,0 +1,19 @@
+
+<div class="container page">
+  <h3>My Leaderboards
+    <%= link_to new_myleaderboard_path, remote: true, class: 'btn btn-primary pull-right' do %>
+      New Leaderboard
+    <% end %>
+  </h3>
+
+  <div id="leaderboards-content">
+    <%= render 'index', leaderboards: @leaderboards %>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="leaderboards-manage-modal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div id="leaderboards-manage-modal-content" class="modal-content"></div>
+    </div>
+  </div>
+</div>

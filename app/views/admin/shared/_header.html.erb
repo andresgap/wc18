@@ -2,11 +2,14 @@
   <h1 class="title">Admin Dashboard</h1>
 
   <ul class="nav nav-tabs">
+    <li role="presentation" class="<%= 'active' if selected == 'matches' %>">
+      <%= link_to 'Matches', admin_matches_path %>
+    </li>
     <li role="presentation" class="<%= 'active' if selected == 'users' %>">
       <%= link_to 'Users', admin_users_path %>
     </li>
-    <li role="presentation" class="<%= 'active' if selected == 'matches' %>">
-      <%= link_to 'Matches', admin_matches_path %>
+    <li role="presentation" class="<%= 'active' if selected == 'leaderboards' %>">
+      <%= link_to 'Leaderboards', admin_leaderboards_path %>
     </li>
   </ul>
 </div>

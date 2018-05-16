@@ -1,0 +1,3 @@
+$("#leaderboards-manage-modal-content")
+  .html("<%= escape_javascript(render 'leave', leaderboard: @leaderboard) %>");
+$("#leaderboards-manage-modal").modal();

@@ -1,0 +1,29 @@
+<table id="leaderboards-table" class="table table-striped" width="100%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Members</th>
+      <th>Private?</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <% leaderboards.each do |leaderboard| %>
+    <tr>
+      <td><%= leaderboard.name %></td>
+      <td><%= leaderboard.users.size %></td>
+      <td><%= yes_no_label(leaderboard.private) %></td>
+      <td>
+        <%= link_to 'Leave', myleaderboard_leave_path(leaderboard), remote: true,
+          class: 'btn btn-danger btn-sm' %>
+        <% if leaderboard.owner == current_user %>
+          <%= link_to edit_myleaderboard_path(leaderboard), remote: true,
+            class: 'btn btn-default btn-sm' do %>
+            <span class="glyphicon glyphicon-pencil"></span>
+          <% end %>
+          <%= link_to 'Invite', myleaderboard_invite_path(leaderboard), remote: true,
+            class: 'btn btn-default btn-sm' %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

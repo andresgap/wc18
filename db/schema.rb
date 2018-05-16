@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515035449) do
+ActiveRecord::Schema.define(version: 20180516030636) do
+
+  create_table "invitations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "leaderboard_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "leaderboards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
+    t.string "code"
+    t.integer "owner_id"
+    t.boolean "active", default: true
+    t.boolean "private", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

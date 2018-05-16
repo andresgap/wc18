@@ -1,0 +1,51 @@
+<table id="leaderboards-table" class="table table-striped" width="100%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Owner</th>
+      <th>Members</th>
+      <th>Active?</th>
+      <th>Private?</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <% leaderboards.each do |leaderboard| %>
+    <tr>
+      <td><%= leaderboard.name %></td>
+      <td><%= leaderboard.code %></td>
+      <td><%= leaderboard.owner.name %></td>
+      <td><%= leaderboard.users.size %></td>
+      <td><%= yes_no_label(leaderboard.active) %></td>
+      <td><%= yes_no_label(leaderboard.private) %></td>
+      <td>
+        <%= link_to edit_admin_leaderboard_path(leaderboard), remote: true,
+          class: 'btn btn-default btn-sm' do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+        <% end %>
+        <%= link_to admin_leaderboard_delete_path(leaderboard), remote: true,
+          class: 'btn btn-danger btn-sm' do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+     $('#leaderboards-table').DataTable({
+       retrieve: true,
+       iDisplayLength: 50,
+       columns: [
+         { type: "string" },
+         { type: "string" },
+         { type: "string" },
+         { type: "num" },
+         { type: "string" },
+         { type: "string" },
+         { orderable: false }
+       ]
+    });
+  });
+</script>

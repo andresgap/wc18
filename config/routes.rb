@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'authentication' }
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'authentication' },
+    skip: [:registrations, :passwords]
 
   devise_scope :user do
     unauthenticated do
@@ -11,13 +13,24 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :rules, only: [:index]
   resources :predictions, only: [:index, :show, :update]
   resources :leaderboards, only: [:index]
-  resources :rules, only: [:index]
+  resources :myleaderboards, only: [:index, :new, :create, :edit, :update] do
+    get 'leave'
+    get 'leave_confirm'
+    get 'invite'
+    get 'invite_confirm'
+    get 'join'
+    get 'join_confirm'
+  end
 
   namespace :admin do
-    resources :users, only: [:index, :edit, :update]
     resources :matches, only: [:index, :edit, :update]
+    resources :users, only: [:index, :edit, :update]
+    resources :leaderboards, only: [:index, :edit, :update, :destroy] do
+      get 'delete'
+    end
   end
 
 end
