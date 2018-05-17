@@ -1,5 +1,4 @@
 config/omniauth.yml
-config/secrets.yml
 
 coverage/*
 log/*
