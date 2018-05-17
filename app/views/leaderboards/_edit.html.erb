@@ -4,7 +4,7 @@
 </div>
 <div>
   <%= form_for(leaderboard,
-    url: myleaderboard_path(leaderboard), remote: true, method: :put) do |f| %>
+    url: leaderboard_path(leaderboard), remote: true, method: :put) do |f| %>
     <%= render 'form', f: f, leaderboard: leaderboard %>
   <% end %>
 </div>

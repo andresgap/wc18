@@ -13,15 +13,16 @@
       <td><%= leaderboard.users.size %></td>
       <td><%= yes_no_label(leaderboard.private) %></td>
       <td>
-        <%= link_to 'Leave', myleaderboard_leave_path(leaderboard), remote: true,
-          class: 'btn btn-danger btn-sm' %>
         <% if leaderboard.owner == current_user %>
-          <%= link_to edit_myleaderboard_path(leaderboard), remote: true,
+          <%= link_to edit_leaderboard_path(leaderboard), remote: true,
             class: 'btn btn-default btn-sm' do %>
             <span class="glyphicon glyphicon-pencil"></span>
           <% end %>
-          <%= link_to 'Invite', myleaderboard_invite_path(leaderboard), remote: true,
+          <%= link_to 'Invite Users', new_leaderboard_invitation_path(leaderboard), remote: true,
             class: 'btn btn-default btn-sm' %>
+        <% else %>
+          <%= link_to 'Leave', leave_leaderboard_path(leaderboard), remote: true,
+            class: 'btn btn-danger btn-sm' %>
         <% end %>
       </td>
     </tr>

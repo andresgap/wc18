@@ -1,13 +1,16 @@
-
 <div class="container page">
+  <div id="invitations-content">
+    <%= render 'invitations', invitations: @invitations %>
+  </div>
+
   <h3>My Leaderboards
-    <%= link_to new_myleaderboard_path, remote: true, class: 'btn btn-primary pull-right' do %>
+    <%= link_to new_leaderboard_path, remote: true, class: 'btn btn-primary pull-right' do %>
       New Leaderboard
     <% end %>
   </h3>
 
   <div id="leaderboards-content">
-    <%= render 'index', leaderboards: @leaderboards %>
+    <%= render 'leaderboards', leaderboards: @leaderboards %>
   </div>
 
   <!-- Modal -->
@@ -17,3 +20,5 @@
     </div>
   </div>
 </div>
+
+

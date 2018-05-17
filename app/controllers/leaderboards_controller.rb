@@ -1,24 +1,72 @@
 class LeaderboardsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_active_page, only: [:index]
-  before_action :general_predictions, only: [:index]
-  before_action :leaderboards, only: [:index]
+  before_action :leaderboards_active_page, only: [:index]
+  before_action :manage_active_page, only: [:manage]
+  before_action :load_leaderboard, only: [:edit, :update, :leave, :leave_confirm]
+  before_action :leaderboards, only: [:index, :create, :update, :leave_confirm]
 
-  private
-
-  def set_active_page
-    @active_page = 'leaderboards'
-  end
-
-  def general_predictions
+  def index
     @general_predictions ||=
       User.active.includes(:prediction_set).all
         .sort_by { |user| [user.prediction_set.points, user.name] }
   end
 
-  def leaderboards
-    @leaderboards = current_user.leaderboards.select(&:active)
+  def manage
+    @leaderboards = current_user.leaderboards
+    @invitations = current_user.invitations
   end
 
+  def new
+    @leaderboard = Leaderboard.new
+  end
+
+  def create
+    leaderboard_params = parameters
+    leaderboard_params.merge!(owner_id: current_user.id)
+    @leaderboard = Leaderboard.create(leaderboard_params)
+    if @leaderboard
+      @leaderboard.code = SecureRandom.uuid
+      @leaderboard.users << current_user
+      @leaderboard.save
+    end
+  end
+
+  def edit
+    @leaderboard = Leaderboard.find(params[:id])
+  end
+
+  def update
+    if @leaderboard.owner == current_user
+      @leaderboard.update(parameters)
+    else
+      @leaderboard.errors.add(:owner, "Invalid")
+    end
+  end
+
+  def leave_confirm
+    @leaderboard.users.delete(current_user)
+  end
+
+  private
+
+  def leaderboards_active_page
+    @active_page = 'leaderboards'
+  end
+
+  def manage_active_page
+    @active_page = 'manage'
+  end
+
+  def parameters
+    params.require(:leaderboard).permit(:name, :private)
+  end
+
+  def leaderboards
+    @leaderboards = current_user.leaderboards
+  end
+
+  def load_leaderboard
+    @leaderboard ||= Leaderboard.find(params[:id])
+  end
 
 end

@@ -1,0 +1,4 @@
+$("#invitations-content")
+  .html("<%= escape_javascript(render 'leaderboards/invitations', invitations: @invitations) %>");
+$("#leaderboards-content")
+  .html("<%= escape_javascript(render 'leaderboards/leaderboards', leaderboards: @leaderboards) %>");

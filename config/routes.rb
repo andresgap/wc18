@@ -15,14 +15,20 @@ Rails.application.routes.draw do
 
   resources :rules, only: [:index]
   resources :predictions, only: [:index, :show, :update]
-  resources :leaderboards, only: [:index]
-  resources :myleaderboards, only: [:index, :new, :create, :edit, :update] do
-    get 'leave'
-    get 'leave_confirm'
-    get 'invite'
-    get 'invite_confirm'
-    get 'join'
-    get 'join_confirm'
+  resources :leaderboards, only: [:index, :new, :create, :edit, :update] do
+    collection do
+      get 'manage'
+    end
+    member do
+      get 'leave'
+      get 'leave_confirm'
+    end
+    resources :invitations, only: [:new, :create] do
+      member do
+        get 'accept'
+        get 'reject'
+      end
+    end
   end
 
   namespace :admin do

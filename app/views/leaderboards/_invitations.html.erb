@@ -1,0 +1,11 @@
+<ul>
+  <% invitations.each do |invitation| %>
+    <li>
+      <%= invitation.leaderboard.owner.name %> invites you to join <%= invitation.leaderboard.name %>
+      <%= link_to 'Accept', accept_leaderboard_invitation_path(invitation.leaderboard, invitation),
+        remote: true, class: 'btn btn-primary' %>
+      <%= link_to 'Reject', reject_leaderboard_invitation_path(invitation.leaderboard, invitation),
+        remote: true, class: 'btn btn-danger' %>
+    </li>
+  <% end %>
+</ul>

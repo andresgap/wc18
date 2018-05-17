@@ -1,6 +1,6 @@
 class Leaderboard < ApplicationRecord
   has_and_belongs_to_many :users
-  has_many :invitations
+  has_many :invitations, dependent: :destroy
 
   belongs_to :owner, class_name: 'User', foreign_key: :owner_id
 

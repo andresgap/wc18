@@ -10,7 +10,10 @@
         <div id="header-menu" class="navbar-right">
           <% if user_signed_in? %>
             <%= image_tag(current_user.picture, alt: 'picture', class: 'user-img') %>
-            <span class="user-name"><%= current_user.name %></span>
+            <span class="user-name">
+              <%= current_user.name %> |
+              <%= link_to('Sign Out', destroy_user_session_path, method: :delete) %>
+            </span>
           <% end %>
         </div>
       </div>
@@ -37,8 +40,10 @@
                 <%= link_to('Admin', admin_matches_path) %>
               </li>
             <% end %>
-            <li>
-              <%= link_to('Sign Out', destroy_user_session_path, method: :delete) %>
+            <li class="<%= 'active' if @active_page == 'manage' %>">
+              <%= link_to manage_leaderboards_path do %>
+                <span class="glyphicon glyphicon-cog"></span>
+              <% end %>
             </li>
           </ul>
         <% end %>
