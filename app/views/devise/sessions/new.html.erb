@@ -6,11 +6,8 @@
           <%= image_tag('logo.png', alt: 'logo', class: 'logo image-responsive') %>
         </div>
         <div class="row">
-          <%= link_to user_google_oauth2_omniauth_authorize_path do %>
-            <%= image_tag('signin-btn.png', class: 'image-responsive',
-                onMouseover: "this.src='/assets/signin-btn-hover.png';",
-                onMouseout: "this.src='/assets/signin-btn.png';") %>
-          <% end %>
+          <%= link_to 'Sign In with Google', user_google_oauth2_omniauth_authorize_path,
+            class: 'btn btn-primary' %>
         </div>
       </div>
     </div>
