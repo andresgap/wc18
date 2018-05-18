@@ -8,7 +8,7 @@ class LeaderboardsController < ApplicationController
   def index
     @general_predictions ||=
       User.active.includes(:prediction_set).all
-        .sort_by { |user| [user.prediction_set.points, user.name] }
+        .sort_by { |user| [user.prediction_set.points, user.name.downcase] }
   end
 
   def manage
