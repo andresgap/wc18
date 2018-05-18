@@ -4,6 +4,8 @@ class Prediction < ApplicationRecord
 
   validate :match_open?
 
+  default_scope -> { order(:match_id) }
+
   def match_open?
     errors.add(:match_error, "this match is already closed!") if match.closed?
   end
