@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :rules, only: [:index]
+  resources :faq, only: [:index]
   resources :predictions, only: [:index, :show, :update]
   resources :leaderboards, only: [:index, :new, :create, :edit, :update] do
     collection do

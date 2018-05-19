@@ -1,4 +1,4 @@
-class RulesController < ApplicationController
+class FaqController < ApplicationController
   before_action :authenticate_user!
   before_action :set_active_page, only: [:index]
 
@@ -9,7 +9,7 @@ class RulesController < ApplicationController
   private
 
   def set_active_page
-    @active_page = 'rules'
+    @active_page = 'faq'
   end
 
 end
