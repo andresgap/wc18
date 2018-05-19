@@ -43,6 +43,11 @@
             <li class="<%= 'active' if @active_page == 'manage' %>">
               <%= link_to manage_leaderboards_path do %>
                 <span class="glyphicon glyphicon-cog"></span>
+                <% if current_user.invitations.size > 0 %>
+                  <sup class="invitations-warning">
+                    <%= current_user.invitations.size %>
+                  </sup>
+                <% end %>
               <% end %>
             </li>
           </ul>
