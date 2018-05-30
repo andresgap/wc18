@@ -1,4 +1,5 @@
-<table class="table table-striped table-hover leaderboard-table">
+<table class="table table-striped table-hover leaderboard-table"
+  id="leaderboard-table-<%= title %>">
   <thead>
     <tr>
       <th>Position</th>
@@ -17,3 +18,19 @@
     </tr>
   <% end %>
 </table>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+     $('#leaderboard-table-<%= title %>').DataTable({
+       retrieve: true,
+       iDisplayLength: 50,
+       searching: false,
+       lengthChange: false,
+       columns: [
+         { type: "num" },
+         { type: "string" },
+         { type: "num" }
+       ]
+    });
+  });
+</script>

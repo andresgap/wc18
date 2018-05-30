@@ -11,7 +11,7 @@
   </td>
   <td><%= prediction.match.phase.name %></td>
   <td class="text-right">
-    <% if prediction.match.ready %>
+    <% if prediction.match.team1 %>
       <span class="hidden-sm hidden-xs"><%= prediction.match.team1.name %></span>
       <%= image_tag(prediction.match.team1.flag, class: 'flag') %>
     <% else %>
@@ -23,7 +23,7 @@
   <td class="text-center score-label"><%= prediction.match.score_label %></td>
   <td>
     <%= f.number_field :score2, maxlength: 2, min: 0, max: 99, class: 'score', disabled: closed %>
-    <% if prediction.match.ready %>
+    <% if prediction.match.team2 %>
       <%= image_tag(prediction.match.team2.flag, class: 'flag') %>
       <span class="hidden-sm hidden-xs"><%= prediction.match.team2.name %></span>
     <% else %>

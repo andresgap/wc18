@@ -1,6 +1,6 @@
 <%
-  team1 = match.ready? ? match.team1.name : match.team1_label
-  team2 = match.ready? ? match.team2.name : match.team2_label
+  team1 = match.team1 ? match.team1.name : match.team1_label
+  team2 = match.team2 ? match.team2.name : match.team2_label
   data = {
     labels: [],
     datasets: [{
@@ -10,7 +10,7 @@
         "#DECF3F",
         "#F15854"
       ],
-      label: 'Dataset 1'
+      label: ''
     }],
     labels: [
       "#{stats.team1}% #{team1}",
@@ -29,5 +29,6 @@
 %>
 
 <div class="chart-box">
+  <div class="chart-title">Match forecast based on users predictions</div>
   <%= pie_chart(data, options) %>
 </div>

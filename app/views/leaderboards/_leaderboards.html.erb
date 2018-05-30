@@ -3,7 +3,7 @@
     <tr>
       <th>Name</th>
       <th>Members</th>
-      <th>Private?</th>
+      <!-- <th>Private?</th> -->
       <th>Actions</th>
     </tr>
   </thead>
@@ -11,7 +11,7 @@
     <tr>
       <td><%= leaderboard.name %></td>
       <td><%= leaderboard.users.size %></td>
-      <td><%= yes_no_label(leaderboard.private) %></td>
+      <!-- <td><%= yes_no_label(leaderboard.private) %></td> -->
       <td>
         <% if leaderboard.owner == current_user %>
           <%= link_to edit_leaderboard_path(leaderboard), remote: true,
