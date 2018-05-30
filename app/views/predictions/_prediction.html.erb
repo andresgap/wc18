@@ -3,9 +3,14 @@
   number = prediction.match.number
 %>
 
-<tr class="clickable prediction-row <%= 'closing' if prediction.match.last_hour? %>" 
-  data-toggle="collapse" id="row<%= number %>" data-target=".row<%= number %>">
-  <td class="text-center"><%= number %></td>
+<tr class="prediction-row <%= 'closing' if prediction.match.last_hour? %>">
+  <td data-toggle="collapse" id="row<%= number %>" data-target=".row<%= number %>"
+    class="chevron">
+    <span class="glyphicon glyphicon-menu-down"></span>
+  </td>
+  <td class="text-center">
+    <%= number %>
+  </td>
   <td class="">
     <%= local_time(prediction.match.date, :long) %>
   </td>
