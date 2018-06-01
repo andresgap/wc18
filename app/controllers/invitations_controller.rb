@@ -5,7 +5,7 @@ class InvitationsController < ApplicationController
 
   def new
     @invitation = Invitation.new(leaderboard: @leaderboard)
-    @users = User.active.all.sort_by(&:name).reject { |user| @leaderboard.users.include?(user) }
+    @users = all_users - invite_users
   end
 
   def create
@@ -35,6 +35,14 @@ class InvitationsController < ApplicationController
   end
 
   private
+
+  def all_users
+    User.active.all.sort_by(&:name).reject { |user| @leaderboard.users.include?(user) }
+  end
+
+  def invite_users
+    @leaderboard.invitations.map(&:user)
+  end
 
   def parameters
     params.require(:invitation).permit(:user_id)
