@@ -1,0 +1,31 @@
+<h4>Members</h4>
+<table id="leadearboard-members-table-<%= leaderboard.id %>" class="" width="60%">
+  <% leaderboard.users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td>
+        <% if leaderboard.owner == user %>
+          Owner
+        <% else %>
+          <%= link_to 'Remove', delete_leaderboard_member_path(leaderboard, user), remote: true,
+            class: 'btn btn-danger btn-sm' %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<h4>Invitations</h4>
+<table id="leadearboard-members-table-<%= leaderboard.id %>" class="" width="60%">
+  <% leaderboard.invitations.each do |invitation| %>
+    <tr>
+      <td><%= invitation.user.name %></td>
+      <td>
+        <% if leaderboard.owner.id != invitation.user.id %>
+          <%= link_to 'Remove',
+            reject_leaderboard_invitation_path(invitation.leaderboard, invitation),
+            remote: true, class: 'btn btn-danger btn-sm' %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

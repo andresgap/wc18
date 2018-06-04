@@ -1,0 +1,3 @@
+$("#matches-modal-content")
+  .html("<%= escape_javascript(render 'points', match: @match) %>");
+$("#matches-modal").modal();

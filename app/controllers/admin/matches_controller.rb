@@ -6,6 +6,11 @@ class Admin::MatchesController < ApplicationController
   before_action :set_active_page, only: [:index]
   before_action :load_teams, only: [:edit]
 
+  def points
+    @match = entity.includes(:predictions, :phase).find(params[:id])
+    Points.new(@match).process
+  end
+
   private
 
   def set_active_page

@@ -13,7 +13,7 @@ class Leaderboard < ApplicationRecord
 
   def users_predictions
     users.active.includes(:prediction_set).all
-      .sort_by { |user| [user.prediction_set.points, user.name.downcase] }
+      .sort_by { |user| [-user.prediction_set.points, user.name.downcase] }
   end
 
 end

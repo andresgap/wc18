@@ -27,4 +27,19 @@ module ApplicationHelper
     value ? 'Yes' : 'No'
   end
 
+  def points_icon(points)
+    if points == 3
+      'king'
+    elsif points == 1
+      'ok'
+    else
+      'remove'
+    end
+  end
+
+  def points_color(points)
+    return unless points
+    points > 0 ? 'green' : 'red'
+  end
+
 end

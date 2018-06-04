@@ -17,4 +17,20 @@ class Match < ApplicationRecord
     date - 5.minutes < Time.current
   end
 
+  def valid_scores?
+    team1_score.present? && team2_score.present?
+  end
+
+  def team1_win?
+    team1_score > team2_score
+  end
+
+  def team2_win?
+    team2_score > team1_score
+  end
+
+  def tie?
+    team1_score == team2_score
+  end
+
 end

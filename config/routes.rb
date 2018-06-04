@@ -32,7 +32,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :matches, only: [:index, :edit, :update]
+    resources :matches, only: [:index, :edit, :update] do
+      member do
+        get 'points'
+      end
+    end
     resources :users, only: [:index, :edit, :update]
     resources :leaderboards, only: [:index, :edit, :update, :destroy] do
       get 'delete'

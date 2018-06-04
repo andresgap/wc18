@@ -37,7 +37,11 @@ class InvitationsController < ApplicationController
   private
 
   def all_users
-    User.active.all.sort_by(&:name).reject { |user| @leaderboard.users.include?(user) }
+    User
+      .active
+      .all
+      .sort_by { |user| user.name.downcase }
+      .reject { |user| @leaderboard.users.include?(user) }
   end
 
   def invite_users

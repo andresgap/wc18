@@ -36,7 +36,14 @@
       <span><%= prediction.match.team2_label %></span>
     <% end %>
   </td>
-  <td class="text-center"><%= prediction.points %></td>
+  <td class="text-center points">
+    <%= prediction.points %>
+    <% if prediction.points.present? %>
+      <span class="<%= points_color(prediction.points) %>">
+        <span class="glyphicon glyphicon-<%= points_icon(prediction.points) %>"></span>
+      </span>
+    <% end %>
+  </td>
 </tr>
 
 <tr class="collapse row<%= number %>">
