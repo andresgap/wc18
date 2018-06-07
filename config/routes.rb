@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     member do
       get 'leave'
       get 'leave_confirm'
+      get 'members'
+      get 'members_confirm'
     end
     resources :invitations, only: [:new, :create] do
       member do

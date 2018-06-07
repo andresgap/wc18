@@ -4,8 +4,19 @@
     <%= f.label :user_id, class: 'control-label' %>
     <%= f.collection_select(:user_id, users, :id, :name, {}, { class: 'form-control' }) %>
   </div>
+  <% if leaderboard.invitations.any? %>
+    <div>
+      <h4>Invitations pending of response:</h4>
+      <ul>
+        <% leaderboard.invitations.each do |invitation| %>
+          <li><%= invitation.user.name %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>
 <div class="modal-footer">
   <%= f.submit class: 'btn btn-primary' %>
   <%= link_to 'Close', '#', class: 'btn btn-default', data: { dismiss: 'modal' } %>
 </div>
+

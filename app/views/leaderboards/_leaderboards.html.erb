@@ -1,4 +1,4 @@
-<table id="leaderboards-table" class="table table-striped" width="100%">
+<table id="leaderboards-table" class="table" width="100%">
   <thead>
     <tr>
       <th>Name</th>
@@ -18,7 +18,9 @@
             class: 'btn btn-default btn-sm' do %>
             <span class="glyphicon glyphicon-pencil"></span>
           <% end %>
-          <%= link_to 'Invite Users', new_leaderboard_invitation_path(leaderboard), remote: true,
+          <%= link_to 'Send Invites', new_leaderboard_invitation_path(leaderboard), remote: true,
+            class: 'btn btn-default btn-sm' %>
+          <%= link_to 'Members', members_leaderboard_path(leaderboard), remote: true,
             class: 'btn btn-default btn-sm' %>
         <% else %>
           <%= link_to 'Leave', leave_leaderboard_path(leaderboard), remote: true,

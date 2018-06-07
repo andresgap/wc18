@@ -1,31 +1,21 @@
-<h4>Members</h4>
-<table id="leadearboard-members-table-<%= leaderboard.id %>" class="" width="60%">
-  <% leaderboard.users.each do |user| %>
-    <tr>
-      <td><%= user.name %></td>
-      <td>
-        <% if leaderboard.owner == user %>
-          Owner
-        <% else %>
-          <%= link_to 'Remove', delete_leaderboard_member_path(leaderboard, user), remote: true,
-            class: 'btn btn-danger btn-sm' %>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
-<h4>Invitations</h4>
-<table id="leadearboard-members-table-<%= leaderboard.id %>" class="" width="60%">
-  <% leaderboard.invitations.each do |invitation| %>
-    <tr>
-      <td><%= invitation.user.name %></td>
-      <td>
-        <% if leaderboard.owner.id != invitation.user.id %>
-          <%= link_to 'Remove',
-            reject_leaderboard_invitation_path(invitation.leaderboard, invitation),
-            remote: true, class: 'btn btn-danger btn-sm' %>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <h4 class="modal-title">Members</h4>
+</div>
+<div class="modal-body">
+  <div class="errors"></div>
+  <ol id="leadearboard-members-table-<%= leaderboard.id %>" width="100%">
+    <% leaderboard.users.each do |user| %>
+      <% if leaderboard.owner == user %>
+        <li><%= user.name %> (Owner)</li>
+      <% else %>
+        <li>
+          <%= user.name %>
+        </li>
+      <% end %>
+    <% end %>
+  </ol>
+</div>
+<div class="modal-footer">
+  <%= link_to 'Close', '#', class: 'btn btn-default', data: { dismiss: 'modal' } %>
+</div>

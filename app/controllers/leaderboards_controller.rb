@@ -2,8 +2,9 @@ class LeaderboardsController < ApplicationController
   before_action :authenticate_user!
   before_action :leaderboards_active_page, only: [:index]
   before_action :manage_active_page, only: [:manage]
-  before_action :load_leaderboard, only: [:edit, :update, :leave, :leave_confirm]
-  before_action :leaderboards, only: [:index, :create, :update, :leave_confirm]
+  before_action :load_leaderboard,
+    only: [:edit, :update, :leave, :leave_confirm, :members, :members_confirm]
+  before_action :leaderboards, only: [:index, :create, :update, :leave_confirm, :members_confirm]
 
   def index
     @general_predictions ||=
@@ -45,6 +46,12 @@ class LeaderboardsController < ApplicationController
 
   def leave_confirm
     @leaderboard.users.delete(current_user)
+  end
+
+  def members_confirm
+    pr params.inspect
+
+     #@leaderboard.users.delete(@user)
   end
 
   private
