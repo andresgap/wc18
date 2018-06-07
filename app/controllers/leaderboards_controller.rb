@@ -49,9 +49,10 @@ class LeaderboardsController < ApplicationController
   end
 
   def members_confirm
-    pr params.inspect
-
-     #@leaderboard.users.delete(@user)
+    if @leaderboard.owner == current_user && params.key?(:users)
+      user_ids = params.require(:users).permit(ids: [])['ids']
+      user_ids.each { |id| @leaderboard.users.delete(User.find(id)) }
+    end
   end
 
   private
