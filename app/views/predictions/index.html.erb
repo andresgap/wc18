@@ -29,3 +29,19 @@
   </div>
 
 </div>
+
+
+<%= form_for(@prediction_set, url: prediction_path(@prediction_set), method: :put) do |f| %>
+  <div class="row">
+    <% Phase.all.select { |p| p.level > 1 }.each do |phase| %>
+      <div class="column col-sm-3 phase-col phase-col-<%= phase.level %>">
+        <div class="phase-name"><%= phase.name %></div>
+        <%= f.fields_for :predictions do |fp| %>
+          <% if fp.object.match.phase == phase %>
+            <%= render 'prediction_top', f: fp, prediction: fp.object, stats: @stats %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

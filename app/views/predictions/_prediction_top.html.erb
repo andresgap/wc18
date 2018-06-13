@@ -1,0 +1,30 @@
+<%
+  closed = prediction.match.closed?
+  number = prediction.match.number
+%>
+
+<div class="phase-match-box">
+  <div>
+    <%= f.number_field :score1, maxlength: 2, min: 0, max: 99, class: 'score', disabled: closed %>
+    <% if prediction.match.team1 %>
+      <%= image_tag(prediction.match.team1.flag, class: 'flag') %>
+      <span class="hidden-sm hidden-xs"><%= prediction.match.team1.name %></span>
+    <% else %>
+      <%= image_tag('flags/none.png', class: 'flag') %>
+      <span><%= prediction.match.team1_label %></span>
+    <% end %>
+  </div>
+  <div>
+    <%= f.number_field :score2, maxlength: 2, min: 0, max: 99, class: 'score', disabled: closed %>
+    <% if prediction.match.team2 %>
+      <%= image_tag(prediction.match.team2.flag, class: 'flag') %>
+      <span class="hidden-sm hidden-xs"><%= prediction.match.team2.name %></span>
+    <% else %>
+      <%= image_tag('flags/none.png', class: 'flag') %>
+      <span><%= prediction.match.team2_label %></span>
+    <% end %>
+  </div>
+  <div>
+     <%= number %> |  <%= local_time(prediction.match.date, :long) %>
+  </div>
+</div>

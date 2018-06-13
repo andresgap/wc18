@@ -70,3 +70,30 @@ td.points .green {
 td.points .red {
   color: red;
 }
+
+
+.phase-col .phase-name {
+  font-size: 14px;
+  border: 1px solid blue;
+  width: 100%;
+}
+.phase-match-box {
+  margin: 0px;
+  height: 100px;
+}
+.phase-col-3 .phase-match-box {
+  height: 200px;
+  padding: 70px 0px;
+}
+.phase-col-4 .phase-match-box {
+  height: 400px;
+  padding: 170px 0px;
+}
+.phase-col-5 .phase-match-box {
+  height: 300px;
+  padding: 0px 0px;
+}
+.phase-col-6 .phase-match-box {
+  height: 500px;
+  padding: 50px 0px;
+}
