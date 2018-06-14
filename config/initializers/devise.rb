@@ -21,7 +21,7 @@ Devise.setup do |config|
     prompt: 'select_account',
     skip_jwt: true
   }
-  config.omniauth :facebook, FB_APP_ID, FB_APP_SECRET
+  # config.omniauth :facebook, FB_APP_ID, FB_APP_SECRET
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
