@@ -38,6 +38,7 @@ gem 'chartjs-ror'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 
 # UI
 gem 'jquery-rails'

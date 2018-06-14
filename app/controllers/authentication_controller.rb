@@ -4,6 +4,10 @@ class AuthenticationController < Devise::OmniauthCallbacksController
     valid_user? ? authorize : no_authorize(I18n.t('error.unauthorized'))
   end
 
+  def facebook
+    valid_user? ? authorize : no_authorize(I18n.t('error.unauthorized'))
+  end
+
   private
 
   def valid_user?
@@ -35,7 +39,7 @@ class AuthenticationController < Devise::OmniauthCallbacksController
       password: fake_password,
       name: auth_info.name,
       image: auth_info.image,
-      picture: auth.extra.raw_info.picture
+      picture: auth.extra.raw_info.picture || auth_info.image
     }
   end
 

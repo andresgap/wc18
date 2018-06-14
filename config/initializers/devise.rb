@@ -10,6 +10,9 @@ OMNIAUTH_KEYS ||= {}
 CLIENT_ID = ENV['GOOGLE_CLIENT_ID'] || OMNIAUTH_KEYS['GOOGLE_CLIENT_ID']
 CLIENT_SECRET = ENV['GOOGLE_CLIENT_SECRET'] || OMNIAUTH_KEYS['GOOGLE_CLIENT_SECRET']
 
+FB_APP_ID = ENV['FB_APP_ID'] || OMNIAUTH_KEYS['FB_APP_ID']
+FB_APP_SECRET = ENV['FB_APP_SECRET'] || OMNIAUTH_KEYS['FB_APP_SECRET']
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -18,6 +21,7 @@ Devise.setup do |config|
     prompt: 'select_account',
     skip_jwt: true
   }
+  config.omniauth :facebook, FB_APP_ID, FB_APP_SECRET
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
