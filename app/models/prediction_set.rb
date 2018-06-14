@@ -9,7 +9,7 @@ class PredictionSet < ApplicationRecord
     def build(user)
       set = PredictionSet.new(user: user)
       set.predictions = Match.all.map { |match| Prediction.new(match: match) }
-      set.save!
+      set.save!(validate: false)
     end
   end
 
