@@ -9,7 +9,7 @@
     </li>
     <% @leaderboards.each do |leaderboard| %>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel-<%= leaderboard.name.downcase %>"
+        <a class="nav-link" data-toggle="tab" href="#panel-<%= leaderboard.name.parameterize %>"
           role="tab">
           <%= leaderboard.name %>
         </a>
@@ -27,7 +27,7 @@
       <%= render 'leaderboard', users: @general_predictions, title: '0' %>
     </div>
     <% @leaderboards.each do |leaderboard| %>
-      <div class="tab-pane" id="panel-<%= leaderboard.name.downcase %>" role="tabpanel">
+      <div class="tab-pane" id="panel-<%= leaderboard.name.parameterize %>" role="tabpanel">
         <%= render 'leaderboard', users: leaderboard.users_predictions, title: leaderboard.id %>
       </div>
     <% end %>
