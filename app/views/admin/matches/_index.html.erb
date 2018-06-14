@@ -9,6 +9,7 @@
       <th>Team 2 Score</th>
       <th>Team 2</th>
       <th>Closed?</th>
+      <th>Points Updated?</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
       <td><%= match.team2_score %></td>
       <td><%= match.team2.name if match.team2 %></td>
       <td><%= yes_no_label(match.closed?) %></td>
+      <td><%= yes_no_label(match.ready) %></td>
       <td>
         <%= link_to edit_admin_match_path(match), remote: true,
           class: 'btn btn-default btn-sm' do %>

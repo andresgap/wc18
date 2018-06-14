@@ -65,6 +65,10 @@
         </div>
       </div>
     <% end %>
+    <div class="form-group">
+      <%= f.check_box :ready %>
+      <%= f.label :ready, 'Points updated?', class: 'control-label' %>
+    </div>
   </div>
   <div class="modal-footer">
     <%= f.submit class: 'btn btn-primary' %>
