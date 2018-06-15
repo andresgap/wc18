@@ -40,7 +40,7 @@
     <%= prediction.points %>
     <% if prediction.points.present? %>
       <span class="<%= points_color(prediction.points) %>">
-        <span class="glyphicon glyphicon-<%= points_icon(prediction.points) %>"></span>
+        <span class="glyphicon glyphicon-<%= points_icon(prediction.points, prediction.match.phase) %>"></span>
       </span>
     <% end %>
   </td>

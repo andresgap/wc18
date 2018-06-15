@@ -27,10 +27,10 @@ module ApplicationHelper
     value ? 'Yes' : 'No'
   end
 
-  def points_icon(points)
-    if points == 3
+  def points_icon(points, phase)
+    if points == phase.big_points
       'king'
-    elsif points == 1
+    elsif points == phase.small_points
       'ok'
     else
       'remove'
