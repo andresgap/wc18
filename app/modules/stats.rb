@@ -18,9 +18,9 @@ class Stats
 
   def stats_values(predictions)
     {
-      team1: (predictions.select(&:team1_win?).size / predictions.size.to_f * 100).to_i,
-      team2: (predictions.select(&:team2_win?).size / predictions.size.to_f * 100).to_i,
-      tie: (predictions.select(&:tie?).size / predictions.size.to_f * 100).to_i
+      team1: (predictions.select(&:team1_win?).size / predictions.size.to_f * 100).to_f,
+      team2: (predictions.select(&:team2_win?).size / predictions.size.to_f * 100).to_f,
+      tie: (predictions.select(&:tie?).size / predictions.size.to_f * 100).to_f
     }
   end
 

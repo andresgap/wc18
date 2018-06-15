@@ -42,4 +42,8 @@ module ApplicationHelper
     points > 0 ? 'green' : 'red'
   end
 
+  def format_number(value)
+    number_with_precision(value, precision: 1)
+  end
+
 end
