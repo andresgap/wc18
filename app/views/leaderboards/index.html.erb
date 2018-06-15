@@ -28,7 +28,7 @@
     </div>
     <% @leaderboards.each do |leaderboard| %>
       <div class="tab-pane" id="panel-<%= leaderboard.name.parameterize %>" role="tabpanel">
-        <%= render 'leaderboard', users: leaderboard.users_predictions, title: leaderboard.id %>
+        <%= render 'leaderboard', users: leaderboard.users_predictions, title: leaderboard.name.parameterize %>
       </div>
     <% end %>
   </div>

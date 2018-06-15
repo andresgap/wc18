@@ -23,10 +23,12 @@
   $(document).ready(function() {
      $('#leaderboard-table-<%= title %>').DataTable({
        retrieve: true,
-       iDisplayLength: 50,
+       // iDisplayLength: 50,
        searching: false,
        lengthChange: false,
        autoWidth: false,
+       info: false,
+       paging: false,
        columns: [
          { type: "num" },
          { type: "string" },
