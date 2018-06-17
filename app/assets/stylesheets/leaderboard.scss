@@ -40,3 +40,33 @@ span.score-box {
 #invitations-content li {
   line-height: 26px;
 }
+
+.leaderboard-table span.medal-1 {
+  display: inline-block;
+  border: 1px solid #FFF;
+  border-radius: 50%;
+  background: gold;
+  width: 30px;
+  height: 30px;
+  box-shadow: 0px 0px 3px 0px #989898;
+}
+
+.leaderboard-table span.medal-2 {
+  display: inline-block;
+  border: 1px solid #FFF;
+  border-radius: 50%;
+  background: silver;
+  width: 30px;
+  height: 30px;
+  box-shadow: 0px 0px 3px 0px #989898;
+}
+
+.leaderboard-table span.medal-3 {
+  display: inline-block;
+  border: 1px solid #FFF;
+  border-radius: 50%;
+  background: #cd7f32;
+  width: 30px;
+  height: 30px;
+  box-shadow: 0px 0px 3px 0px #989898;
+}

@@ -9,7 +9,11 @@
   </thead>
   <% users.each_with_index do |user, index| %>
     <tr>
-      <td class="text-center number"><%= index + 1 %></td>
+      <td class="text-center number">
+        <span class="<%= "number-#{index + 1}" %>">
+          <%= index + 1 %>
+        </span>
+      </td>
       <td>
         <%= image_tag(user.picture, alt: 'picture', class: 'user-image') %>
         <%= link_to(user.name, prediction_path(user.prediction_set)) %>

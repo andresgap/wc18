@@ -15,5 +15,12 @@
     <%= image_tag(prediction.match.team2.flag, class: 'flag') %>
     <span class="hidden-sm hidden-xs"><%= prediction.match.team2.name %></span>
   </td>
-  <td class="text-center"><%= prediction.points %></td>
+  <td class="text-center points">
+    <%= prediction.points %>
+    <% if prediction.points.present? %>
+      <span class="<%= points_color(prediction.points) %>">
+        <span class="glyphicon glyphicon-<%= points_icon(prediction.points, prediction.match.phase) %>"></span>
+      </span>
+    <% end %>
+  </td>
 </tr>
