@@ -5,13 +5,12 @@
 
   <ul class="nav nav-tabs">
     <li class="nav-item active">
-      <a class="nav-link" data-toggle="tab" href="#panel-general" role="tab"  role="tab">General</a>
+      <a class="nav-link" data-toggle="tab" href="#panel-general" role="tab">General</a>
     </li>
-    <% @leaderboards.each do |leaderboard| %>
+    <% @boards.each do |board| %>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel-<%= leaderboard.name.parameterize %>"
-          role="tab">
-          <%= leaderboard.name %>
+        <a class="nav-link" data-toggle="tab" href="#panel-<%= board.title.parameterize %>" role="tab">
+          <%= board.title %>
         </a>
       </li>
     <% end %>
@@ -24,11 +23,11 @@
 
   <div class="tab-content card">
     <div class="tab-pane active" id="panel-general" role="tabpanel">
-      <%= render 'leaderboard', users: @general_predictions, title: '0' %>
+      <%= render 'leaderboard', board: @general_board %>
     </div>
-    <% @leaderboards.each do |leaderboard| %>
-      <div class="tab-pane" id="panel-<%= leaderboard.name.parameterize %>" role="tabpanel">
-        <%= render 'leaderboard', users: leaderboard.users_predictions, title: leaderboard.name.parameterize %>
+    <% @boards.each do |board| %>
+      <div class="tab-pane" id="panel-<%= board.title.parameterize %>" role="tabpanel">
+        <%= render 'leaderboard', board: board %>
       </div>
     <% end %>
   </div>

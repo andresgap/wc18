@@ -4,13 +4,11 @@ class LeaderboardsController < ApplicationController
   before_action :manage_active_page, only: [:manage]
   before_action :load_leaderboard,
     only: [:edit, :update, :leave, :leave_confirm, :members, :members_confirm]
-  before_action :leaderboards, only: [:index, :create, :update, :leave_confirm, :members_confirm]
+  before_action :leaderboards, only: [:create, :update, :leave_confirm, :members_confirm]
 
   def index
-    @general_predictions ||=
-      User.active.includes(:prediction_set).all
-        .select { |user| user.prediction_set && user.prediction_set.points > 0 }
-        .sort_by { |user| [-user.prediction_set.points, user.name.downcase] }
+    @general_board ||= PositionBoard.new
+    @boards = current_user.leaderboards.map { |leaderboard| PositionBoard.new(leaderboard) }
   end
 
   def manage

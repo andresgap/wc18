@@ -11,9 +11,4 @@ class Leaderboard < ApplicationRecord
   scope :closed, -> { where(private: true) }
   scope :opened, -> { where(private: false) }
 
-  def users_predictions
-    users.active.includes(:prediction_set).all
-      .sort_by { |user| [-user.prediction_set.points, user.name.downcase] }
-  end
-
 end
