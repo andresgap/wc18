@@ -23,7 +23,7 @@ class PositionBoard
   def users
     @users ||= leaderboard ?
       leaderboard.users.active.includes(:prediction_set).all :
-      User.active.includes(:prediction_set).all
+      User.active.includes(:prediction_set).all.reject { |user| user.prediction_set.points == 0 }
   end
 
   def position_row(user)
