@@ -70,3 +70,11 @@ td.points .green {
 td.points .red {
   color: red;
 }
+
+#predictions-table td.phase-title {
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #DDD;
+  line-height: 20px !important;
+  padding: 0px 10px !important;
+}

@@ -38,7 +38,7 @@ class Points
   end
 
   def update_set(prediction_set)
-    prediction_set.points = prediction_set.predictions.map(&:points).compact.reduce(:+)
+    prediction_set.points = prediction_set.predictions.map(&:points).compact.reduce(:+).to_i
     prediction_set.save
   end
 

@@ -1,3 +1,5 @@
+<% phases = [] %>
+
 <div class="container page">
   <h2 class="title">My Predictions (<%= @prediction_set.points %> points)</h2>
 
@@ -17,6 +19,12 @@
           </thead>
           <tbody>
             <%= f.fields_for :predictions do |fp| %>
+              <% if fp.object.match.phase.level > 1 && !phases.include?(fp.object.match.phase.level) %>
+                <% phases << fp.object.match.phase.level %>
+                <tr>
+                  <td colspan="8" class="phase-title"><%= fp.object.match.phase.name %></td>
+                </tr>
+              <% end %>
               <%= render 'prediction', f: fp, prediction: fp.object, stats: @stats %>
             <% end %>
           </tbody>
