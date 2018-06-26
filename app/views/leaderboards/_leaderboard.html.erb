@@ -32,10 +32,11 @@
        info: false,
        paging: false,
        columns: [
-         { type: "num" },
-         { type: "string" },
+         { orderable: false },
+         { orderable: false },
          { type: "num" }
-       ]
+       ],
+       order: [[ 2, "desc" ]]
     });
   });
 </script>
