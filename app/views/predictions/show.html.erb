@@ -1,3 +1,5 @@
+<% phases = [] %>
+
 <div class="container page">
   <h1 class="title">
     <%= @prediction_set.user.name %> Predictions (<%= @prediction_set.points %> points)
@@ -9,7 +11,6 @@
         <thead>
           <th class="text-center">Number</th>
           <th>Date</th>
-          <th>Phase</th>
           <th class="text-right">Team 1</th>
           <th class="text-center">vs</th>
           <th>Team 2</th>
@@ -17,6 +18,12 @@
         </thead>
         <tbody>
           <% @prediction_set.closed_predictions.each do |prediction| %>
+            <% if prediction.match.phase.level > 1 && !phases.include?(prediction.match.phase.level) %>
+              <% phases << prediction.match.phase.level %>
+              <tr>
+                <td colspan="8" class="phase-title"><%= prediction.match.phase.name %></td>
+              </tr>
+            <% end %>
             <%= render 'show_prediction', prediction: prediction %>
           <% end %>
         </tbody>

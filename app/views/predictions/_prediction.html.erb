@@ -11,10 +11,12 @@
   <td class="text-center">
     <%= number %>
   </td>
-  <td class="">
+  <td>
     <%= local_time(prediction.match.date, :long) %>
+    <% if prediction.match.phase.level == 1 %>
+      (<%= prediction.match.phase.name %>)
+    <% end %>
   </td>
-  <td><%= prediction.match.phase.name %></td>
   <td class="text-right">
     <% if prediction.match.team1 %>
       <span class="hidden-sm hidden-xs"><%= prediction.match.team1.name %></span>
