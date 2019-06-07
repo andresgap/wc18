@@ -1,12 +1,11 @@
 namespace :quiniela do
 
   desc 'Seeds database'
-  task :seed, [:file_name] => :environment do |t, args|
-    defaults = YAML.load_file(args[:file_name])
-    DEFAULT_ADMINS = JSON.parse(defaults['admins'].to_json, object_class: OpenStruct)
-    DEFAULT_PHASES = JSON.parse(defaults['phases'].to_json, object_class: OpenStruct)
-    DEFAULT_TEAMS = JSON.parse(defaults['teams'].to_json, object_class: OpenStruct)
-    DEFAULT_MATCHES = JSON.parse(defaults['matches'].to_json, object_class: OpenStruct)
+  task :seed => :environment do |t, args|
+    DEFAULT_ADMINS = JSON.parse(DEFAULTS[:admins].to_json, object_class: OpenStruct)
+    DEFAULT_PHASES = JSON.parse(DEFAULTS[:phases].to_json, object_class: OpenStruct)
+    DEFAULT_TEAMS = JSON.parse(DEFAULTS[:teams].to_json, object_class: OpenStruct)
+    DEFAULT_MATCHES = JSON.parse(DEFAULTS[:matches].to_json, object_class: OpenStruct)
 
     # Admins
     puts 'Creating default users...'
