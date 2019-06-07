@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180516030636) do
+ActiveRecord::Schema.define(version: 20190607071803) do
 
   create_table "invitations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "leaderboard_id"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20180516030636) do
     t.boolean "ready", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tournament_id"
   end
 
   create_table "phases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(version: 20180516030636) do
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tournament_id"
   end
 
   create_table "prediction_sets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,6 +68,7 @@ ActiveRecord::Schema.define(version: 20180516030636) do
     t.integer "points", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tournament_id"
   end
 
   create_table "predictions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -83,6 +86,14 @@ ActiveRecord::Schema.define(version: 20180516030636) do
     t.string "group"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tournament_id"
+  end
+
+  create_table "tournaments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "code", limit: 45
+    t.boolean "active", default: true
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

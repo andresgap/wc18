@@ -1,4 +1,4 @@
-namespace :wc18 do
+namespace :quiniela do
 
   desc 'Seeds database'
   task 'seed' => :environment do |t, args|
@@ -9,6 +9,9 @@ namespace :wc18 do
     end
     puts 'Users created'
 
+    # Tournament
+    tournament = Tournament.where(code: 'GC19').first
+
     # Phases
     puts 'Creating default phases...'
     DEFAULT_PHASES.each do |phase|
@@ -17,7 +20,8 @@ namespace :wc18 do
         level: phase.level,
         small_points: phase.small_points,
         big_points: phase.big_points,
-        active: phase.active
+        active: phase.active,
+        tournament: tournament
       ).first_or_create
     end
     puts 'Phases created'
@@ -25,14 +29,14 @@ namespace :wc18 do
     # Teams
     puts 'Creating default teams...'
     DEFAULT_TEAMS.each do |team|
-      Team.where(code: team.code, group: team.group).first_or_create
+      Team.where(code: team.code, group: team.group, tournament: tournament).first_or_create
     end
     puts 'Teams created'
 
     # Matches
     puts 'Creating default matches...'
-    teams = Team.all
-    phases = Phase.all
+    teams = tournament.teams.all
+    phases = tournament.phases.all
     DEFAULT_MATCHES.each_with_index do |match, index|
       date = DateTime.parse(match.date)
       phase = phases.find { |phase| phase.code == match.phase }
@@ -45,7 +49,8 @@ namespace :wc18 do
           team1: team1,
           team2: team2,
           phase: phase,
-          ready: phase.active
+          ready: phase.active,
+          tournament: tournament
         }
         Match.where(match_params).first_or_create
       else
@@ -55,7 +60,8 @@ namespace :wc18 do
           phase: phase,
           team1_label: match.team1_label,
           team2_label: match.team2_label,
-          ready: phase.active
+          ready: phase.active,
+          tournament: tournament
         }
         Match.where(match_params).first_or_create
       end
