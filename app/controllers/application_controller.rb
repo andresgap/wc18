@@ -21,9 +21,9 @@ class ApplicationController < ActionController::Base
     if !PredictionSet.exists?(user: user, tournament: gc19)
       PredictionSet.build(user, gc19)
     end
-    if !PredictionSet.exists?(user: user, tournament: ca19)
-      PredictionSet.build(user, ca19)
-    end
+    # if !PredictionSet.exists?(user: user, tournament: ca19)
+      # PredictionSet.build(user, ca19)
+    # end
     super(user)
   end
 

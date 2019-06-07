@@ -5,7 +5,9 @@ begin
   DEFAULT_TEAMS = JSON.parse(defaults['teams'].to_json, object_class: OpenStruct)
   DEFAULT_MATCHES = JSON.parse(defaults['matches'].to_json, object_class: OpenStruct)
 rescue Errno::ENOENT, Psych::SyntaxError
-  Rails.logger.error 'An error occured while loading defaults_gc19.yml'
+  Rails.logger.error 'An error occured while loading defaults.yml'
 end
 DEFAULT_ADMINS ||= []
+DEFAULT_PHASES ||= []
+DEFAULT_TEAMS ||= []
 DEFAULT_TOURNAMENTS ||= []
