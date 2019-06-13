@@ -28,7 +28,7 @@ class Admin::MatchesController < ApplicationController
   end
 
   def load_all_entity_objects
-    @all_entity_objects = entity.order(:number)
+    @all_entity_objects = entity.where(tournament: gc19).order(:number)
   end
 
   def load_teams

@@ -10,6 +10,10 @@ class Stats
     @matches ||= gc19.matches.includes(:predictions).all
   end
 
+  def gc19
+    @gc19 ||= Tournament.where(code: 'GC19').first
+  end
+
   def build(match)
     valid_predictions = match.predictions.select(&:valid_scores?)
     stats = valid_predictions.any? ? stats_values(valid_predictions) : empty_stats

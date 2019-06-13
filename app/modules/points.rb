@@ -43,4 +43,8 @@ class Points
     prediction_set.save
   end
 
+  def gc19
+    @gc19 ||= Tournament.where(code: 'GC19').first
+  end
+
 end

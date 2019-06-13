@@ -17,7 +17,8 @@ class PositionBoard
   private
 
   def positions
-    @positions ||= users.map { |user| OpenStruct.new(position_row(user)) }
+    @positions ||=
+      prediction_sets.map { |prediction_set| OpenStruct.new(position_row(prediction_set)) }
   end
 
   def users
@@ -27,18 +28,27 @@ class PositionBoard
         .reject { |user| user.prediction_set.points == 0 }
   end
 
-  def position_row(user)
+  def prediction_sets
+    @prediction_sets ||= PredictionSet.where(tournament: gc19).includes(:user).all
+      #.reject { |prediction_set| prediction_set.points == 0 }
+  end
+
+  def position_row(prediction_set)
     {
-      name: user.name,
-      picture: user.picture,
-      points: user.prediction_set.points,
-      index: order_points.index(user.prediction_set.points) + 1,
-      prediction_set: user.prediction_set
+      name: prediction_set.user.name,
+      picture: prediction_set.user.picture,
+      points: prediction_set.points,
+      index: order_points.index(prediction_set.points) + 1,
+      prediction_set: prediction_set
     }
   end
 
   def order_points
-    @order_points ||= users.map { |user| user.prediction_set.points }.sort.reverse.uniq
+    @order_points ||= prediction_sets.map(&:points).sort.reverse.uniq
+  end
+
+  def gc19
+    @gc19 ||= Tournament.where(code: 'GC19').first
   end
 
 end

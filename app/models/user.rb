@@ -5,7 +5,7 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable,
     :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
 
-  has_one :prediction_set
+  has_many :prediction_set
   has_many :invitations
   has_and_belongs_to_many :leaderboards
   has_many :admin_leaderboards, class_name: 'Leaderboard', foreign_key: :owner_id
