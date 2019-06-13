@@ -7,7 +7,7 @@ class Admin::MatchesController < ApplicationController
   before_action :load_teams, only: [:edit]
 
   def points
-    @match = entity.includes(:predictions, :phase).find(params[:id])
+    @match = entity.where(tournament: gc19).includes(:predictions, :phase).find(params[:id])
     Points.new(@match).process
   end
 
@@ -32,7 +32,7 @@ class Admin::MatchesController < ApplicationController
   end
 
   def load_teams
-    @teams = Team.all.sort_by(&:name)
+    @teams = gc19.teams.all.sort_by(&:name)
   end
 
 end

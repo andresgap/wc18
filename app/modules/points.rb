@@ -9,7 +9,8 @@ class Points
   def process
     return unless match.valid_scores?
     match.predictions.each { |prediction| update_prediction(prediction) }
-    PredictionSet.includes(:predictions).all.each { |prediction_set| update_set(prediction_set) }
+    gc19.prediction_sets.includes(:predictions).all
+      .each { |prediction_set| update_set(prediction_set) }
     match.update_attributes(ready: true)
   end
 

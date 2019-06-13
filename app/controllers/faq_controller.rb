@@ -3,7 +3,7 @@ class FaqController < ApplicationController
   before_action :set_active_page, only: [:index]
 
   def index
-    @phases = Phase.all.select { |phase| phase.level > 1 }
+    @phases = gc19.phases.all.select { |phase| phase.level > 1 }
   end
 
   private

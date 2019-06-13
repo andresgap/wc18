@@ -7,7 +7,7 @@ class Stats
   private
 
   def matches
-    @matches ||= Match.includes(:predictions).all
+    @matches ||= gc19.matches.includes(:predictions).all
   end
 
   def build(match)

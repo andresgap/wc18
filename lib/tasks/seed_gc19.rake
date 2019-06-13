@@ -11,6 +11,7 @@ namespace :quiniela do
     Match.update_all(tournament_id: wc18.id)
     PredictionSet.update_all(tournament_id: wc18.id)
     wc18.update_attributes(active: false)
+    ca19.update_attributes(active: false)
 
     puts 'GC19 updated'
 
